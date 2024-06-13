@@ -1,0 +1,25 @@
+@import './shared-imports.scss';
+@import './root-variables.scss';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  @include max-prop(font-size, rem(18), vw(18));
+
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+::-moz-selection {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+::selection {
+  background: var(--color-black);
+  color: var(--color-white);
+}

@@ -1,1 +1,58 @@
 @import '@/styles/shared-imports.scss';
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: vw(106);
+  padding: 0 vw(40);
+}
+
+.logo {
+  @include max-prop(font-size, rem(30), vw(30));
+
+  font-weight: 400;
+  letter-spacing: vw(2);
+}
+
+.slash {
+  color: var(--color-radical-red);
+}
+
+.button {
+  @include max-prop(font-size, rem(18), vw(18));
+
+  text-transform: uppercase;
+  letter-spacing: vw(4);
+  font-weight: 300;
+  display: flex;
+  gap: vw(30);
+  align-items: center;
+}
+
+.burger {
+  width: vw(32);
+  height: vw(20);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.burgerLine {
+  height: vw(2);
+  background: var(--color-radical-red);
+
+  &.first {
+    transform: scaleX(0.75);
+    transform-origin: left;
+  }
+
+  &.last {
+    transform: scaleX(0.75);
+    transform-origin: right;
+  }
+}
+
+.nav {
+  display: none;
+}

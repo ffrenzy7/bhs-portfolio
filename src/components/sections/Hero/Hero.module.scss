@@ -1,0 +1,28 @@
+@import '@/styles/shared-imports.scss';
+
+.hero {
+  @include position-fit(fixed);
+
+  background: var(--color-black);
+  width: 100%;
+  height: 100dvh;
+  color: var(--color-white-lilac);
+  // padding: 200px;
+
+  display: flex;
+  align-items: center;
+}
+
+.content {
+}
+
+.name {
+}
+
+.role {
+  text-transform: uppercase;
+}
+
+.slash {
+  color: var(--color-radical-red);
+}

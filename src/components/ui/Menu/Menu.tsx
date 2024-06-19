@@ -1,37 +1,43 @@
+import { useState } from 'react'
 import Link from 'next/link'
 import clsx from 'clsx'
 
 import s from './Menu.module.scss'
 
 const Menu = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+
   return (
     <header className={clsx(s.header)}>
       <Link className={clsx(s.logo)} href="/">
         <span className={clsx(s.slash)}>/</span>BHS
       </Link>
 
-      <button className={clsx(s.button)}>
-        Menu
+      <button
+        className={clsx(s.button, { [s.isOpen]: isOpen })}
+        onClick={() => setIsOpen((prev) => !prev)}
+      >
+        {isOpen ? 'Fechar' : 'Menu'}
         <div className={clsx(s.burger)}>
           <div className={clsx(s.burgerLine, s.first)} />
-          <div className={clsx(s.burgerLine)} />
+          <div className={clsx(s.burgerLine, s.middle)} />
           <div className={clsx(s.burgerLine, s.last)} />
         </div>
       </button>
 
-      <nav className={clsx(s.nav)}>
-        <ul>
-          <li>
+      <nav className={clsx(s.nav, { [s.isOpen]: isOpen })}>
+        <ul className={clsx(s.list)}>
+          <li className={clsx(s.item)}>
             <Link href="/">Home</Link>
           </li>
-          <li>
-            <Link href="/#portfolio">Portfolio</Link>
+          <li className={clsx(s.item)}>
+            <Link href="/#portfolio">Projetos</Link>
           </li>
-          <li>
-            <Link href="/#about">About</Link>
+          <li className={clsx(s.item)}>
+            <Link href="/#about">Sobre Mim</Link>
           </li>
-          <li>
-            <Link href="/contact">Contact</Link>
+          <li className={clsx(s.item)}>
+            <Link href="/contact">Contato</Link>
           </li>
         </ul>
       </nav>

@@ -4,8 +4,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: vw(106);
+  height: vw(110);
   padding: 0 vw(40);
+  color: var(--color-white-lilac);
 }
 
 .logo {
@@ -13,6 +14,7 @@
 
   font-weight: 400;
   letter-spacing: vw(2);
+  z-index: 1;
 }
 
 .slash {
@@ -24,35 +26,93 @@
 
   text-transform: uppercase;
   letter-spacing: vw(4);
-  font-weight: 300;
+  font-weight: 400;
   display: flex;
   gap: vw(30);
   align-items: center;
+  z-index: 1;
+
+  &:hover {
+    color: var(--color-radical-red);
+  }
 }
 
 .burger {
-  width: vw(32);
-  height: vw(20);
+  width: vw(40);
+  height: vw(40);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
+
+  .button.isOpen & {
+    justify-content: space-between;
+  }
 }
 
 .burgerLine {
-  height: vw(2);
-  background: var(--color-radical-red);
+  height: vw(3);
+  background: var(--color-white-lilac);
 
   &.first {
     transform: scaleX(0.75);
     transform-origin: left;
+
+    .button.isOpen & {
+      // transform-origin: left;
+      transform: rotate(45deg) scaleX(1.35);
+    }
+  }
+
+  &.middle {
+    .button.isOpen & {
+      transform: scaleX(0);
+    }
   }
 
   &.last {
     transform: scaleX(0.75);
     transform-origin: right;
+
+    .button.isOpen & {
+      transform-origin: left;
+      transform: rotate(-45deg) scaleX(1.35);
+    }
+  }
+
+  .button:hover & {
+    background: var(--color-radical-red);
+    transform: scaleX(1);
   }
 }
 
 .nav {
+  @include position-fit(fixed);
+  @include flex-center();
+
+  text-align: center;
+  font-size: vw(50);
+  gap: vw(30);
+  font-weight: 600;
   display: none;
+
+  &::before {
+    @include position-fit();
+
+    content: '';
+    background: var(--color-black);
+  }
+
+  &.isOpen {
+    display: flex;
+  }
+}
+
+.list {
+  position: relative;
+}
+
+.item {
+  &:hover {
+    color: var(--color-radical-red);
+  }
 }

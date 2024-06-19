@@ -7,6 +7,8 @@
   height: vw(110);
   padding: 0 vw(40);
   color: var(--color-white-lilac);
+  position: relative;
+  z-index: z('menu');
 }
 
 .logo {
@@ -14,7 +16,7 @@
 
   font-weight: 400;
   letter-spacing: vw(2);
-  z-index: 1;
+  z-index: z('above');
 }
 
 .slash {
@@ -30,7 +32,7 @@
   display: flex;
   gap: vw(30);
   align-items: center;
-  z-index: 1;
+  z-index: z('above');
 
   &:hover {
     color: var(--color-radical-red);
@@ -43,7 +45,7 @@
 
 .buttonText {
   opacity: 0;
-  transition: 0.6s ease-in-out;
+  transition: 0.3s ease-in-out 0.1s;
   transition-property: opacity, color;
 
   &.menuText {
@@ -70,11 +72,11 @@
   top: 50%;
   left: 0;
   width: 100%;
-  transition: 0.2s ease-in-out;
+  transition: 0.3s ease-in-out;
   transition-property: transform, width;
 
   &.first {
-    transform: translateY(-9px);
+    transform: translateY(vw(-11));
     width: 75%;
 
     .button:hover & {
@@ -94,7 +96,7 @@
   }
 
   &.last {
-    transform: translateY(9px);
+    transform: translateY(vw(11));
     width: 75%;
     left: initial;
     right: 0;
@@ -132,7 +134,7 @@
     background: var(--color-black);
     opacity: 0;
     transform: translateY(-100%);
-    transition: 0.4s ease-in-out;
+    transition: 0.3s ease-in-out;
     transition-property: opacity, transform;
   }
 
@@ -149,7 +151,7 @@
 .list {
   position: relative;
   opacity: 0;
-  transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 
   .nav.isOpen & {
     opacity: 1;
@@ -157,7 +159,7 @@
 }
 
 .item {
-  transition: color 0.4s ease-in-out;
+  transition: color 0.3s ease-in-out;
 
   &:hover {
     color: var(--color-radical-red);

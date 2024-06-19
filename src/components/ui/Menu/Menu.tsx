@@ -17,7 +17,13 @@ const Menu = () => {
         className={clsx(s.button, { [s.isOpen]: isOpen })}
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        {isOpen ? 'Fechar' : 'Menu'}
+        <span className={clsx(s.buttonTexts)}>
+          <span className={clsx(s.buttonText, s.menuText, { [s.isVisible]: !isOpen })}>
+            Menu
+          </span>
+          <span className={clsx(s.buttonText, { [s.isVisible]: isOpen })}>Fechar</span>
+        </span>
+
         <div className={clsx(s.burger)}>
           <div className={clsx(s.burgerLine, s.first)} />
           <div className={clsx(s.burgerLine, s.middle)} />

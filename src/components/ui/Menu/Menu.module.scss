@@ -37,29 +37,53 @@
   }
 }
 
+.buttonTexts {
+  position: relative;
+}
+
+.buttonText {
+  opacity: 0;
+  transition: 0.6s ease-in-out;
+  transition-property: opacity, color;
+
+  &.menuText {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &.isVisible {
+    opacity: 1;
+  }
+}
+
 .burger {
   width: vw(40);
-  height: vw(40);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-
-  .button.isOpen & {
-    justify-content: space-between;
-  }
+  height: vw(20);
+  position: relative;
 }
 
 .burgerLine {
   height: vw(3);
   background: var(--color-white-lilac);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transition: 0.2s ease-in-out;
+  transition-property: transform, width;
 
   &.first {
-    transform: scaleX(0.75);
-    transform-origin: left;
+    transform: translateY(-9px);
+    width: 75%;
+
+    .button:hover & {
+      width: 100%;
+    }
 
     .button.isOpen & {
-      // transform-origin: left;
-      transform: rotate(45deg) scaleX(1.35);
+      transform: rotate(45deg);
+      width: 100%;
     }
   }
 
@@ -70,18 +94,23 @@
   }
 
   &.last {
-    transform: scaleX(0.75);
-    transform-origin: right;
+    transform: translateY(9px);
+    width: 75%;
+    left: initial;
+    right: 0;
+
+    .button:hover & {
+      width: 100%;
+    }
 
     .button.isOpen & {
-      transform-origin: left;
-      transform: rotate(-45deg) scaleX(1.35);
+      transform: rotate(-45deg);
+      width: 100%;
     }
   }
 
   .button:hover & {
     background: var(--color-radical-red);
-    transform: scaleX(1);
   }
 }
 
@@ -93,25 +122,43 @@
   font-size: vw(50);
   gap: vw(30);
   font-weight: 600;
-  display: none;
+  display: flex;
+  pointer-events: none;
 
   &::before {
     @include position-fit();
 
     content: '';
     background: var(--color-black);
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: 0.4s ease-in-out;
+    transition-property: opacity, transform;
+  }
+
+  &.isOpen::before {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   &.isOpen {
-    display: flex;
+    pointer-events: auto;
   }
 }
 
 .list {
   position: relative;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+
+  .nav.isOpen & {
+    opacity: 1;
+  }
 }
 
 .item {
+  transition: color 0.4s ease-in-out;
+
   &:hover {
     color: var(--color-radical-red);
   }

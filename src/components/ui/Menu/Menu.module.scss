@@ -119,12 +119,9 @@
 .nav {
   @include position-fit(fixed);
   @include flex-center();
-  @include max-prop(font-size, rem(50), vw(50));
+  @include max-prop(font-size, rem(40), vw(40));
 
-  text-align: center;
-  gap: vw(30);
   font-weight: 600;
-  display: flex;
   pointer-events: none;
 
   &::before {
@@ -149,6 +146,9 @@
 }
 
 .list {
+  @include flex-center(column);
+
+  gap: vw(20);
   position: relative;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;

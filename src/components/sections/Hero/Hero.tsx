@@ -9,7 +9,11 @@ const Hero = () => {
     <>
       <main className={clsx(s.hero)}>
         <div className={clsx(s.content)}>
-          <h1 className={clsx(s.name)}>Bruno Henrique</h1>
+          <h1 className={clsx(s.name)}>
+            Bruno
+            <br />
+            Henrique
+          </h1>
           <h2 className={clsx(s.role)}>
             Cargo 1<span className={clsx(s.slash)}> / </span>
             Cargo 2<span className={clsx(s.slash)}> / </span>

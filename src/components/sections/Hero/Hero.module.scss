@@ -7,22 +7,41 @@
   width: 100%;
   height: 100dvh;
   color: var(--color-white-lilac);
-  // padding: 200px;
-
+  padding-left: vw(240);
   display: flex;
   align-items: center;
+
+  // &::before {
+  //   @include position-fit();
+
+  //   content: '';
+  //   background: url('../../../assets/images/bruno-henrique.png') no-repeat 130% 120% / 60%;
+  //   opacity: 0.3;
+  // }
 }
 
 .content {
 }
 
 .name {
+  @include max-prop(font-size, rem(180), vw(180));
+
+  font-weight: 700;
+  line-height: 0.9;
 }
 
 .role {
+  @include max-prop(font-size, rem(20), vw(20));
+
   text-transform: uppercase;
+  margin-top: vw(10);
+  letter-spacing: vw(2);
 }
 
 .slash {
+  @include max-prop(font-size, rem(15), vw(15));
+
+  margin: 0 vw(15);
   color: var(--color-radical-red);
+  vertical-align: middle;
 }

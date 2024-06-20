@@ -119,9 +119,9 @@
 .nav {
   @include position-fit(fixed);
   @include flex-center();
+  @include max-prop(font-size, rem(50), vw(50));
 
   text-align: center;
-  font-size: vw(50);
   gap: vw(30);
   font-weight: 600;
   display: flex;

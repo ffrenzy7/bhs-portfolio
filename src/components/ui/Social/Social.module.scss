@@ -1,0 +1,30 @@
+@import '@/styles/shared-imports.scss';
+
+.social {
+  @include flex-center(column);
+
+  gap: vw(20);
+  position: absolute;
+  bottom: vw(60);
+  left: vw(40);
+}
+
+.wrapper {
+  @include flex-center(column);
+  @include max-prop(height, rem(18), vw(18));
+  @include max-prop(width, rem(18), vw(18));
+
+  position: relative;
+  overflow: hidden;
+}
+
+.icon {
+  // @include max-prop(height, rem(18), vw(18));
+  width: 100%;
+
+  &.last {
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+}

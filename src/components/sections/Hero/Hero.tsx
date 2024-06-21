@@ -1,6 +1,8 @@
+import Link from 'next/link'
 import clsx from 'clsx'
 
 import Social from '@/components/ui/Social'
+import ScrollDown from '@/components/ui/ScrollDown'
 
 import s from './Hero.module.scss'
 
@@ -8,7 +10,7 @@ const Hero = () => {
   return (
     <>
       <main className={clsx(s.hero)}>
-        <div className={clsx(s.content)}>
+        <div>
           <h1 className={clsx(s.name)}>
             Bruno
             <br />
@@ -23,8 +25,11 @@ const Hero = () => {
         </div>
 
         <Social />
+
+        <ScrollDown id="projects" />
       </main>
     </>
   )
 }
+
 export default Hero

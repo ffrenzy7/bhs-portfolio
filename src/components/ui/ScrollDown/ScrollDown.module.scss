@@ -1,0 +1,31 @@
+@import '@/styles/shared-imports.scss';
+
+.scrollDown {
+  @include max-prop(font-size, rem(11), vw(11));
+
+  letter-spacing: vw(2);
+  transform: rotate(90deg);
+  transform-origin: right top;
+  position: absolute;
+  right: vw(40);
+  bottom: vw(20);
+  overflow: hidden;
+}
+
+@keyframes lineDown {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.line {
+  animation: lineDown 2s infinite ease-in-out;
+
+  margin-bottom: vw(10);
+  height: vw(1);
+  width: 100%;
+  background: var(--color-white-lilac);
+}

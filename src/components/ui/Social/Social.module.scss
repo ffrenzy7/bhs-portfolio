@@ -5,23 +5,31 @@
 
   gap: vw(20);
   position: absolute;
-  bottom: vw(60);
+  bottom: vw(40);
   left: vw(40);
+}
+
+.link {
+  @include max-prop(height, rem(18), vw(18));
+  @include max-prop(width, rem(18), vw(18));
+
+  overflow: hidden;
 }
 
 .wrapper {
   @include flex-center(column);
-  @include max-prop(height, rem(18), vw(18));
-  @include max-prop(width, rem(18), vw(18));
+  @include transition;
 
+  transition-property: color, transform;
   position: relative;
-  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-100%);
+    color: var(--color-radical-red);
+  }
 }
 
 .icon {
-  // @include max-prop(height, rem(18), vw(18));
-  width: 100%;
-
   &.last {
     position: absolute;
     top: 100%;

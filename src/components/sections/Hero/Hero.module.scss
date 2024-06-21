@@ -20,9 +20,6 @@
   // }
 }
 
-.content {
-}
-
 .name {
   @include max-prop(font-size, rem(180), vw(180));
 

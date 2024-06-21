@@ -44,8 +44,9 @@
 }
 
 .buttonText {
+  @include transition(0.1s);
+
   opacity: 0;
-  transition: 0.3s ease-in-out 0.1s;
   transition-property: opacity, color;
 
   &.menuText {
@@ -66,13 +67,14 @@
 }
 
 .burgerLine {
+  @include transition;
+
   height: vw(3);
   background: var(--color-white-lilac);
   position: absolute;
   top: 50%;
   left: 0;
   width: 100%;
-  transition: 0.3s ease-in-out;
   transition-property: transform, width;
 
   &.first {
@@ -118,20 +120,20 @@
 
 .nav {
   @include position-fit(fixed);
-  @include flex-center();
+  @include flex-center;
   @include max-prop(font-size, rem(40), vw(40));
 
   font-weight: 600;
   pointer-events: none;
 
   &::before {
-    @include position-fit();
+    @include position-fit;
+    @include transition;
 
     content: '';
     background: var(--color-black);
     opacity: 0;
     transform: translateY(-100%);
-    transition: 0.3s ease-in-out;
     transition-property: opacity, transform;
   }
 
@@ -147,11 +149,12 @@
 
 .list {
   @include flex-center(column);
+  @include transition;
 
   gap: vw(20);
   position: relative;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition-property: opacity;
 
   .nav.isOpen & {
     opacity: 1;
@@ -159,7 +162,9 @@
 }
 
 .item {
-  transition: color 0.3s ease-in-out;
+  @include transition;
+
+  transition-property: color;
 
   &:hover {
     color: var(--color-radical-red);

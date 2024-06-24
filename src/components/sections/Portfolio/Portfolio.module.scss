@@ -1,0 +1,25 @@
+@import '@/styles/shared-imports.scss';
+
+.portfolio {
+  margin-top: 100dvh;
+  background: var(--color-woodsmoke);
+  position: relative;
+  color: var(--color-white-lilac);
+  // padding: 0 vw(360);
+  padding: 0 vw($globalPaddingDesktop) vw(200);
+}
+
+.title {
+  color: transparent;
+  font-size: vw(220);
+  font-weight: 700;
+  letter-spacing: vw(3);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: vw(150);
+  justify-content: space-between;
+}

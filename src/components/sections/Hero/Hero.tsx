@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import clsx from 'clsx'
 
 import Social from '@/components/ui/Social'
@@ -26,7 +25,7 @@ const Hero = () => {
 
         <Social />
 
-        <ScrollDown id="projects" />
+        <ScrollDown id="portfolio" />
       </main>
     </>
   )

@@ -1,0 +1,52 @@
+@import '@/styles/shared-imports.scss';
+
+.card {
+  position: relative;
+}
+
+.imageWrapper {
+  width: vw(440);
+  height: vw(564);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  position: absolute;
+  top: 30%;
+  left: -20%;
+}
+
+.title {
+  font-weight: 700;
+  font-size: vw(45);
+  margin-bottom: vw(15);
+}
+
+.tags {
+  text-transform: uppercase;
+  font-size: vw(12);
+  letter-spacing: vw(2);
+}
+
+.dash {
+  color: var(--color-radical-red);
+}
+
+.tag {
+}
+
+.button {
+  height: vw(38);
+  padding: 0 vw(20);
+  border: 1px solid var(--color-radical-red);
+  position: absolute;
+  bottom: 10%;
+  left: 104%;
+  text-transform: uppercase;
+  font-size: vw(12);
+}

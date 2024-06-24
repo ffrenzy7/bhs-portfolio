@@ -1,5 +1,6 @@
 import Metadata from '@/components/core/Metadata'
 import Hero from '@/components/sections/Hero'
+import Portfolio from '@/components/sections/Portfolio'
 
 // import type { IHomePage } from './HomePageTypes'
 
@@ -11,7 +12,9 @@ const HomePage = () => {
         description="Bruno Henrique Engenheiro"
         metatags="portfolio, engenheiro, bhs"
       />
+
       <Hero />
+      <Portfolio />
     </>
   )
 }

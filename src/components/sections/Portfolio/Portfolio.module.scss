@@ -5,11 +5,13 @@
   background: var(--color-woodsmoke);
   position: relative;
   color: var(--color-white-lilac);
-  // padding: 0 vw(360);
-  padding: 0 vw($globalPaddingDesktop) vw(200);
+  padding: vw(180) vw($globalPaddingDesktop);
 }
 
 .title {
+  position: absolute;
+  top: -2%;
+  left: 1%;
   color: transparent;
   font-size: vw(220);
   font-weight: 700;

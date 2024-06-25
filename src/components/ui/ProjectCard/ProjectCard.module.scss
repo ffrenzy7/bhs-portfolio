@@ -38,15 +38,127 @@
 }
 
 .tag {
+  @include transition;
+
+  transition-property: color;
+
+  &:hover {
+    color: var(--color-radical-red);
+  }
+}
+
+.buttonWrapper {
+  position: absolute;
+  bottom: 10%;
+  left: 90%;
+  display: flex;
+  align-items: center;
+}
+
+.line {
+  @include transition;
+
+  transition-property: background;
+  width: vw(60);
+  height: 1px;
+  background: var(--color-white-lilac);
+
+  .card:hover & {
+    background: var(--color-radical-red);
+  }
 }
 
 .button {
+  @include transition;
+
+  transition-property: color;
   height: vw(38);
   padding: 0 vw(20);
-  border: 1px solid var(--color-radical-red);
-  position: absolute;
-  bottom: 10%;
-  left: 104%;
   text-transform: uppercase;
   font-size: vw(12);
+  position: relative;
+
+  .buttonWrapper:hover & {
+    color: var(--color-radical-red);
+  }
+}
+
+.border {
+  background: var(--color-radical-red);
+  position: absolute;
+
+  &.leftBottom {
+    top: 50%;
+    left: 0;
+    bottom: 0;
+    width: 1px;
+    transform: scaleY(0);
+    transition: transform 0.1s 0.4s;
+    transform-origin: top;
+
+    .card:hover & {
+      transform: scaleY(1);
+      transition-delay: 0s;
+    }
+  }
+
+  &.bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    transform: scaleX(0);
+    transition: transform 0.1s 0.3s;
+    transform-origin: left;
+
+    .card:hover & {
+      transform: scaleX(1);
+      transition-delay: 0.1s;
+    }
+  }
+
+  &.right {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 1px;
+    transform: scaleY(0);
+    transition: transform 0.1s 0.2s;
+    transform-origin: bottom;
+
+    .card:hover & {
+      transform: scaleY(1);
+      transition-delay: 0.2s;
+    }
+  }
+
+  &.top {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    transform: scaleX(0);
+    transition: transform 0.1s 0.1s;
+    transform-origin: right;
+
+    .card:hover & {
+      transform: scaleX(1);
+      transition-delay: 0.3s;
+    }
+  }
+
+  &.leftTop {
+    top: 0;
+    left: 0;
+    bottom: 50%;
+    width: 1px;
+    transform: scaleY(0);
+    transition: transform 0.1s 0s;
+    transform-origin: top;
+
+    .card:hover & {
+      transform: scaleY(1);
+      transition-delay: 0.4s;
+    }
+  }
 }

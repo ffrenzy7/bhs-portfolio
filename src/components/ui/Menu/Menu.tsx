@@ -42,9 +42,9 @@ const Menu = () => {
           <li className={clsx(s.item)}>
             <Link href="/#about">Sobre Mim</Link>
           </li>
-          <li className={clsx(s.item)}>
+          {/* <li className={clsx(s.item)}>
             <Link href="/contact">Contato</Link>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </header>

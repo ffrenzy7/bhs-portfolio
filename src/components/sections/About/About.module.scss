@@ -1,0 +1,75 @@
+@import '@/styles/shared-imports.scss';
+
+.about {
+  background: var(--color-white-lilac);
+  color: var(--color-woodsmoke);
+  position: relative;
+  padding: vw(240) vw($globalPaddingDesktop);
+}
+
+.backTitle {
+  position: absolute;
+  top: 50%;
+  left: 1%;
+  transform: translate(0, -50%);
+  font-size: vw(350);
+  font-weight: 600;
+  text-shadow: 0px vw(10) vw(40) rgba(0, 0, 0, 0.08);
+  color: var(--color-white-lilac);
+  line-height: vw(300);
+  letter-spacing: vw(-10);
+}
+
+.content {
+  position: relative;
+}
+
+.title {
+  font-size: vw(90);
+  font-weight: 600;
+  letter-spacing: vw(-3);
+}
+
+.dash {
+  color: var(--color-radical-red);
+}
+
+.description {
+  padding-left: vw(215);
+  margin-top: vw(64);
+  font-size: vw(35);
+  line-height: vw(65);
+  font-weight: 500;
+}
+
+.highlight {
+  position: relative;
+
+  &::before {
+    @include transition;
+    @include position-fit;
+
+    transition-property: transform;
+    content: '';
+    background: var(--color-radical-red);
+    transform: scaleY(0.1);
+    transform-origin: bottom;
+  }
+
+  &:hover::before {
+    transform: scaleY(1);
+  }
+}
+
+.highlightText {
+  @include transition;
+
+  transition-property: color;
+  font-weight: 700;
+  z-index: z('above');
+  position: relative;
+
+  &:hover {
+    color: var(--color-white-lilac);
+  }
+}

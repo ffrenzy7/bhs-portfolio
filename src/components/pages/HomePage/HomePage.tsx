@@ -1,6 +1,7 @@
 import Metadata from '@/components/core/Metadata'
 import Hero from '@/components/sections/Hero'
 import Portfolio from '@/components/sections/Portfolio'
+import About from '@/components/sections/About'
 
 // import type { IHomePage } from './HomePageTypes'
 
@@ -15,6 +16,7 @@ const HomePage = () => {
 
       <Hero />
       <Portfolio />
+      <About />
     </>
   )
 }

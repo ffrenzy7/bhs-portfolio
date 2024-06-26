@@ -7,27 +7,25 @@ import s from './Hero.module.scss'
 
 const Hero = () => {
   return (
-    <>
-      <main className={clsx(s.hero)}>
-        <div>
-          <h1 className={clsx(s.name)}>
-            Bruno
-            <br />
-            Henrique
-          </h1>
+    <main className={clsx(s.hero)}>
+      <div>
+        <h1 className={clsx(s.name)}>
+          Bruno
+          <br />
+          Henrique
+        </h1>
 
-          <h2 className={clsx(s.role)}>
-            Cargo 1<span className={clsx(s.slash)}> / </span>
-            Cargo 2<span className={clsx(s.slash)}> / </span>
-            Cargo 3
-          </h2>
-        </div>
+        <h2 className={clsx(s.role)}>
+          Cargo 1<span className={clsx(s.slash)}> / </span>
+          Cargo 2<span className={clsx(s.slash)}> / </span>
+          Cargo 3
+        </h2>
+      </div>
 
-        <Social />
+      <Social />
 
-        <ScrollDown id="portfolio" />
-      </main>
-    </>
+      <ScrollDown id="portfolio" />
+    </main>
   )
 }
 

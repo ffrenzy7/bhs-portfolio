@@ -11,12 +11,14 @@
 .title {
   position: absolute;
   top: -2%;
-  left: 1%;
+  left: 15%;
   color: transparent;
   font-size: vw(220);
   font-weight: 700;
   letter-spacing: vw(3);
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+  transition: transform 1s ease-out;
+  user-select: none;
 }
 
 .projects {

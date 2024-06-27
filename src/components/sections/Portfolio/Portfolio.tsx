@@ -1,4 +1,4 @@
-// import Link from 'next/link'
+import { useEffect, useRef } from 'react'
 import clsx from 'clsx'
 
 import ProjectCard from '@/components/ui/ProjectCard'
@@ -45,9 +45,30 @@ const mockData = [
 ]
 
 const Portfolio = () => {
+  const titleRef = useRef<HTMLHeadingElement>(null)
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (!titleRef.current) return
+
+      const { top, bottom } = titleRef.current?.getBoundingClientRect() as DOMRect
+      const isTitleVisible = top < window.innerHeight && bottom > 0
+
+      if (isTitleVisible) {
+        titleRef.current.style.transform = `translateX(${-window.scrollY * 0.02}%)`
+      }
+    }
+
+    window.addEventListener('scroll', onScroll)
+
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
     <section className={clsx(s.portfolio)} id="portfolio">
-      <h2 className={clsx(s.title)}>Portfolio</h2>
+      <h2 className={clsx(s.title)} ref={titleRef}>
+        Portfolio
+      </h2>
 
       <div className={clsx(s.projects)}>
         {mockData.map((project, index) => (

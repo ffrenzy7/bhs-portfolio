@@ -59,6 +59,29 @@
   }
 }
 
+.tagText {
+  position: relative;
+
+  &::after {
+    @include transition;
+
+    content: '';
+    transition-property: transform;
+    transform-origin: left;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--color-radical-red);
+    transform: scaleX(0);
+  }
+
+  .tag:hover &::after {
+    transform: scaleX(1);
+  }
+}
+
 .buttonWrapper {
   position: absolute;
   bottom: 10%;

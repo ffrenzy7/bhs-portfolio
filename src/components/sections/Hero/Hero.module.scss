@@ -20,6 +20,13 @@
   // }
 }
 
+.overlay {
+  @include position-fit();
+
+  background: var(--color-shark);
+  z-index: z('above');
+}
+
 .name {
   @include max-prop(font-size, rem(180), vw(180));
 

@@ -8,16 +8,18 @@
   padding: vw(180) vw($globalPaddingDesktop);
 }
 
-.title {
+.titleWrapper {
   position: absolute;
   top: -2%;
   left: 15%;
+}
+
+.title {
   color: transparent;
   font-size: vw(220);
   font-weight: 700;
   letter-spacing: vw(3);
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
-  transition: transform 1s ease-out;
   user-select: none;
 }
 

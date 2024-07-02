@@ -7,18 +7,23 @@
   padding: vw(240) vw($globalPaddingDesktop);
 }
 
-.backTitle {
+.backTitleWrapper {
   position: absolute;
-  top: 50%;
-  left: 1%;
-  transform: translate(0, -50%);
-  font-size: vw(350);
+  top: 45%;
+  left: 50%;
+}
+
+.backTitle {
+  // transform: translate(-50%, -50%);
+  display: block;
+  font-size: vw(280);
   font-weight: 600;
   text-shadow: 0px vw(10) vw(40) rgba(0, 0, 0, 0.08);
   color: var(--color-white-lilac);
   line-height: vw(300);
   letter-spacing: vw(-10);
   user-select: none;
+  white-space: nowrap;
 }
 
 .content {

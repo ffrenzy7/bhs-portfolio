@@ -69,7 +69,7 @@ const ProjectCard = ({ title, tags, image, url }: IProjectCard) => {
             <span className={clsx(s.dash)}>- </span>
             {tags.map((tag, index) => (
               <span key={index} className={clsx(s.tag)}>
-                {tag}
+                <span className={clsx(s.tagText)}>{tag}</span>
                 {index < tags.length - 1 ? ', ' : ''}
               </span>
             ))}

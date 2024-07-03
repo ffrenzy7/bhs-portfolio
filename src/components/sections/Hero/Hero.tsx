@@ -13,13 +13,11 @@ const Hero = () => {
     const onScroll = () => {
       if (!overlayRef.current) return
 
-      const opacity = window.scrollY / (window.innerHeight * 0.66)
+      let opacity = window.scrollY / (window.innerHeight * 0.66)
 
-      console.log(opacity)
+      opacity = opacity < 1 ? opacity : 1
 
-      if (opacity < 1) {
-        overlayRef.current.style.opacity = `${opacity}`
-      }
+      overlayRef.current.style.opacity = `${opacity}`
     }
 
     window.addEventListener('scroll', onScroll)

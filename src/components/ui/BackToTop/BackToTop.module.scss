@@ -1,0 +1,52 @@
+@import '@/styles/shared-imports.scss';
+
+.backToTop {
+  @include transition;
+
+  transition-property: transform;
+  transform: scale(0);
+  background: var(--color-radical-red);
+  position: fixed;
+  bottom: vw(40);
+  right: vw(40);
+  border-radius: 50%;
+  z-index: z('above');
+  overflow: hidden;
+  border: 1px solid var(--color-white-lilac);
+  color: var(--color-white-lilac);
+  @include max-prop(height, rem(40), vw(40));
+  @include max-prop(width, rem(40), vw(40));
+
+  &:active {
+    color: var(--color-white-lilac);
+  }
+
+  &.isOpen {
+    transform: scale(1);
+  }
+}
+
+.wrapper {
+  @include flex-center(column);
+  @include transition;
+
+  transition-property: transform;
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  .backToTop:hover & {
+    transform: translateY(-100%);
+  }
+}
+
+.icon {
+  height: 100%;
+
+  &.last {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

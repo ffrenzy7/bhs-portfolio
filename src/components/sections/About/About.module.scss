@@ -5,6 +5,7 @@
   color: var(--color-woodsmoke);
   position: relative;
   padding: vw(240) vw($globalPaddingDesktop);
+  overflow: hidden;
 }
 
 .backTitleWrapper {
@@ -36,7 +37,7 @@
   letter-spacing: vw(-3);
 }
 
-.dash {
+.underscore {
   color: var(--color-radical-red);
 }
 

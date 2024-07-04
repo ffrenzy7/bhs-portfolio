@@ -37,14 +37,13 @@ const Menu = () => {
             <Link href="/">Home</Link>
           </li>
           <li className={clsx(s.item)}>
-            <Link href="/#portfolio">Projetos</Link>
+            <Link href="/#portfolio" onClick={() => setIsOpen(false)}>
+              Projetos
+            </Link>
           </li>
-          <li className={clsx(s.item)}>
+          <li className={clsx(s.item)} onClick={() => setIsOpen(false)}>
             <Link href="/#about">Sobre Mim</Link>
           </li>
-          {/* <li className={clsx(s.item)}>
-            <Link href="/contact">Contato</Link>
-          </li> */}
         </ul>
       </nav>
     </header>

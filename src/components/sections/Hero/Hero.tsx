@@ -18,6 +18,10 @@ const Hero = () => {
       opacity = opacity < 1 ? opacity : 1
 
       overlayRef.current.style.opacity = `${opacity}`
+
+      opacity > 0.5
+        ? (overlayRef.current.style.pointerEvents = 'auto')
+        : (overlayRef.current.style.pointerEvents = 'none')
     }
 
     window.addEventListener('scroll', onScroll)

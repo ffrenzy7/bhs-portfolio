@@ -1,12 +1,20 @@
 @import '@/styles/shared-imports.scss';
 
 .social {
-  @include flex-center(column);
+  &.standard {
+    @include flex-center(column);
 
-  gap: vw(20);
-  position: absolute;
-  bottom: vw(40);
-  left: vw(40);
+    gap: vw(20);
+    position: absolute;
+    bottom: vw(40);
+    left: vw(40);
+  }
+
+  &.alternate {
+    @include flex-center();
+
+    gap: vw(20);
+  }
 }
 
 .link {

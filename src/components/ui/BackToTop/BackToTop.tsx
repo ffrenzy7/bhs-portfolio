@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import Link from 'next/link'
 import clsx from 'clsx'
 import { IoIosArrowUp } from 'react-icons/io'
 
@@ -18,13 +17,21 @@ const BackToTop = () => {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
-    <Link className={clsx(s.backToTop, { [s.isOpen]: isOpen })} href={'#top'}>
+    <button
+      type="button"
+      className={clsx(s.backToTop, { [s.isOpen]: isOpen })}
+      onClick={scrollToTop}
+    >
       <div className={clsx(s.wrapper)}>
         <IoIosArrowUp className={clsx(s.icon)} />
         <IoIosArrowUp className={clsx(s.icon, s.last)} />
       </div>
-    </Link>
+    </button>
   )
 }
 

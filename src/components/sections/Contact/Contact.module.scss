@@ -1,0 +1,28 @@
+@import '@/styles/shared-imports.scss';
+
+.contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-shark);
+  color: var(--color-white-lilac);
+  padding: vw(30) vw($globalPaddingDesktop);
+  position: relative;
+}
+
+.content {
+  display: flex;
+  gap: vw(20);
+}
+
+.title {
+  font-size: vw(18);
+}
+
+.underscore {
+  color: var(--color-radical-red);
+}
+
+.copyright {
+  font-size: vw(18);
+}

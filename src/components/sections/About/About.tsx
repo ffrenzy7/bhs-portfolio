@@ -5,14 +5,14 @@ import ScrollingText from '@/components/ui/ScrollingText'
 
 const About = () => {
   return (
-    <section className={clsx(s.about)}>
+    <section className={clsx(s.about)} id="about">
       <ScrollingText className={clsx(s.backTitleWrapper)}>
         <span className={clsx(s.backTitle)}>Sobre Mim</span>
       </ScrollingText>
 
       <div className={clsx(s.content)}>
         <h2 className={clsx(s.title)}>
-          Sobre Mim<span className={clsx(s.dash)}>_</span>
+          Sobre Mim<span className={clsx(s.underscore)}>_</span>
         </h2>
 
         <p className={clsx(s.description)}>

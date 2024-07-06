@@ -1,0 +1,33 @@
+@import '@/styles/shared-imports.scss';
+
+.hero {
+  @include max-prop(height, rem(434), vw(434));
+
+  background-image: url(../../../assets/images/project-header-bg.jpg);
+  background-size: cover;
+  // background-position: center;
+  // background-repeat: no-repeat;
+  padding: 0 vw(40);
+  color: var(--color-white-lilac);
+  display: flex;
+  align-items: center;
+}
+
+.content {
+}
+
+.title {
+  font-size: vw(100);
+  font-weight: 700;
+}
+
+.nav {
+}
+
+.list {
+  display: flex;
+  gap: vw(20);
+}
+
+.item {
+}

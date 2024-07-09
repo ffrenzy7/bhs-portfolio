@@ -9,7 +9,7 @@ export default function Project({ data }: any) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params, draftMode }) => {
-  const data = { slug: params?.slug }
+  const data = { slug: params?.slug, title: params?.slug }
 
   return {
     props: {

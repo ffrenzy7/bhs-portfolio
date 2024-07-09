@@ -1,1 +1,16 @@
 @import '@/styles/shared-imports.scss';
+
+.main {
+  margin-top: vw(434 - $menuHeight);
+  padding: vw(120) vw($globalPaddingDesktop);
+  color: var(--color-mine-shaft);
+}
+
+.title {
+  font-size: vw(35);
+  font-weight: 700;
+}
+
+.content {
+  margin-top: vw(40);
+}

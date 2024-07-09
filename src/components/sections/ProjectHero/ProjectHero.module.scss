@@ -1,19 +1,29 @@
 @import '@/styles/shared-imports.scss';
 
 .hero {
-  @include max-prop(height, rem(434), vw(434));
+  @include position-fit();
 
+  height: vw(434);
   background-image: url(../../../assets/images/project-header-bg.jpg);
   background-size: cover;
   // background-position: center;
   // background-repeat: no-repeat;
-  padding: 0 vw(40);
+  padding: 0 vw($globalPaddingDesktop);
   color: var(--color-white-lilac);
   display: flex;
   align-items: center;
+
+  &::before {
+    @include position-fit();
+
+    content: '';
+
+    background: rgba(0, 0, 0, 0.8);
+  }
 }
 
 .content {
+  position: relative;
 }
 
 .title {
@@ -21,13 +31,17 @@
   font-weight: 700;
 }
 
-.nav {
-}
-
 .list {
   display: flex;
   gap: vw(20);
 }
 
+.slash {
+  color: var(--color-gray);
+}
+
 .item {
+  &:not(:last-child) {
+    color: var(--color-radical-red);
+  }
 }

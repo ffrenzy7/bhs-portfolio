@@ -1,3 +1,3 @@
 export interface IProjectHero {
-  breadcrumbs: string[]
+  title: string
 }

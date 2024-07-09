@@ -1,7 +1,7 @@
 @import '@/styles/shared-imports.scss';
 
 .portfolio {
-  margin-top: 100dvh;
+  margin-top: calc(100dvh - vw($menuHeight));
   background: var(--color-woodsmoke);
   position: relative;
   color: var(--color-white-lilac);

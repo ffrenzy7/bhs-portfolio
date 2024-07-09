@@ -12,7 +12,7 @@ const ProjectPage = ({ data }: any) => {
         metatags="portfolio, engenheiro, bhs"
       />
 
-      <ProjectHero breadcrumbs={['Home', 'Título do Projeto']} />
+      <ProjectHero title={data.title} />
       <ProjectMain />
       <Contact />
     </>

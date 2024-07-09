@@ -3,23 +3,20 @@ import clsx from 'clsx'
 import { IProjectHero } from './ProjectHeroTypes'
 
 import s from './ProjectHero.module.scss'
+import Link from 'next/link'
 
-const ProjectHero = ({ breadcrumbs }: IProjectHero) => {
+const ProjectHero = ({ title }: IProjectHero) => {
   return (
     <header className={clsx(s.hero)}>
       <div className={clsx(s.content)}>
-        <h1 className={clsx(s.title)}>Título Projeto</h1>
-        <nav className={clsx(s.nav)}>
+        <h1 className={clsx(s.title)}>{title}</h1>
+        <nav>
           <ul className={clsx(s.list)}>
-            {breadcrumbs.map((breadcrumb, index) => (
-              <>
-                <li key={index} className={clsx(s.item)}>
-                  {breadcrumb}
-                </li>
-
-                {index < breadcrumbs.length - 1 ? '/' : ''}
-              </>
-            ))}
+            <li className={clsx(s.item)}>
+              <Link href="/">Home</Link>
+            </li>
+            <li className={clsx(s.slash)}>/</li>
+            <li className={clsx(s.item)}>{title}</li>
           </ul>
         </nav>
       </div>

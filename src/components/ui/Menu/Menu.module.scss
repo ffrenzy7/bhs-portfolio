@@ -1,14 +1,23 @@
 @import '@/styles/shared-imports.scss';
 
 .header {
+  @include max-prop(height, rem($menuHeightMobile), vw($menuHeightDesktop));
+  @include max-prop(padding-left, rem($globalPaddingMobile), vw(40));
+  @include max-prop(padding-right, rem($globalPaddingMobile), vw(40));
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: vw($menuHeight);
-  padding: 0 vw(40);
+  // height: rem($menuHeightDesktop);
+  // padding: 0 rem(40);
   color: var(--color-white-lilac);
   position: relative;
   z-index: z('menu');
+
+  // @include above('desktop') {
+  //   height: vw($menuHeightDesktop);
+  //   padding: 0 vw(40);
+  // }
 }
 
 .logo {
@@ -24,52 +33,71 @@
 }
 
 .button {
-  @include max-prop(font-size, rem(18), vw(18));
-
-  text-transform: uppercase;
-  letter-spacing: vw(4);
-  font-weight: 400;
-  display: flex;
-  gap: vw(30);
-  align-items: center;
+  // text-transform: uppercase;
+  // letter-spacing: vw(4);
+  // font-size: vw(18);
+  // font-weight: 400;
   z-index: z('above');
 
-  &:hover {
-    color: var(--color-radical-red);
+  @include above('desktop') {
+    display: flex;
+    gap: vw(30);
+    align-items: center;
+  }
+
+  @include isHoverable {
+    &:hover {
+      color: var(--color-radical-red);
+    }
   }
 }
 
 .buttonTexts {
-  position: relative;
+  display: none;
+
+  @include above('desktop') {
+    position: relative;
+    display: initial;
+    text-transform: uppercase;
+    letter-spacing: vw(4);
+    font-size: vw(18);
+    font-weight: 400;
+  }
 }
 
 .buttonText {
-  @include transition(0.1s);
+  @include above('desktop') {
+    @include transition(0.1s);
 
-  opacity: 0;
-  transition-property: opacity, color;
+    opacity: 0;
+    transition-property: opacity, color;
 
-  &.menuText {
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
+    &.menuText {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
 
-  &.isVisible {
-    opacity: 1;
+    &.isVisible {
+      opacity: 1;
+    }
   }
 }
 
 .burger {
-  width: vw(40);
-  height: vw(20);
+  @include max-prop(width, rem(40), vw(40));
+  @include max-prop(height, rem(20), vw(20));
+
+  // width: vw(40);
+  // height: vw(20);
   position: relative;
 }
 
 .burgerLine {
+  @include max-prop(height, rem(3), vw(3));
   @include transition;
 
-  height: vw(3);
+  // height: rem(3);
   background: var(--color-white-lilac);
   position: absolute;
   top: 50%;
@@ -78,11 +106,17 @@
   transition-property: transform, width;
 
   &.first {
-    transform: translateY(vw(-11));
+    transform: translateY(rem(-11));
     width: 75%;
 
-    .button:hover & {
-      width: 100%;
+    @include above('desktop') {
+      transform: translateY(vw(-11));
+    }
+
+    @include isHoverable {
+      .button:hover & {
+        width: 100%;
+      }
     }
 
     .button.isOpen & {
@@ -98,13 +132,19 @@
   }
 
   &.last {
-    transform: translateY(vw(11));
+    transform: translateY(rem(11));
     width: 75%;
     left: initial;
     right: 0;
 
-    .button:hover & {
-      width: 100%;
+    @include above('desktop') {
+      transform: translateY(vw(11));
+    }
+
+    @include isHoverable {
+      .button:hover & {
+        width: 100%;
+      }
     }
 
     .button.isOpen & {

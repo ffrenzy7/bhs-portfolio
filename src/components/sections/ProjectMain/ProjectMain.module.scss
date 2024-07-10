@@ -1,7 +1,7 @@
 @import '@/styles/shared-imports.scss';
 
 .main {
-  margin-top: vw(434 - $menuHeight);
+  margin-top: vw(434 - $menuHeightDesktop);
   padding: vw(120) vw($globalPaddingDesktop);
   color: var(--color-mine-shaft);
 }

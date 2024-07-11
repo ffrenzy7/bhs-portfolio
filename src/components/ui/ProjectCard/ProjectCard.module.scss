@@ -1,24 +1,36 @@
 @import '@/styles/shared-imports.scss';
 
 .cardWrapper {
-  perspective: 1500px;
+  // perspective: 1500px;
+
+  @include above('desktop') {
+    perspective: vw(1500);
+  }
 }
 
 .card {
-  @include transition;
-
   position: relative;
-  transition-property: transform;
-  transform: rotate3d(0);
 
-  &:hover {
-    transition-duration: 0.15s;
+  @include isHoverable {
+    @include transition;
+
+    transition-property: transform;
+    // transform: rotate3d(0);
+
+    &:hover {
+      transition-duration: 0.15s;
+    }
   }
 }
 
 .imageWrapper {
-  width: vw(440);
-  height: vw(564);
+  width: rem(270);
+  height: rem(346);
+
+  @include above('desktop') {
+    width: vw(440);
+    height: vw(564);
+  }
 }
 
 .image {
@@ -30,110 +42,159 @@
 .content {
   position: absolute;
   top: 30%;
-  left: -20%;
+  left: -10%;
+
+  @include above('desktop') {
+    left: -20%;
+  }
 }
 
 .title {
   font-weight: 700;
-  font-size: vw(45);
-  margin-bottom: vw(15);
+  font-size: rem(25);
+  margin-bottom: rem(15);
+
+  @include above('desktop') {
+    font-size: vw(45);
+    margin-bottom: vw(15);
+  }
 }
 
 .tags {
   text-transform: uppercase;
-  font-size: vw(12);
-  letter-spacing: vw(2);
+  font-size: rem(12);
+  letter-spacing: rem(2);
+
+  @include above('desktop') {
+    font-size: vw(12);
+    letter-spacing: vw(2);
+  }
 }
 
 .dash {
-  color: var(--color-radical-red);
+  display: none;
+
+  @include above('desktop') {
+    display: initial;
+    color: var(--color-radical-red);
+  }
 }
 
 .tag {
-  @include transition;
+  display: block;
+  &:not(:first-child) {
+    margin-top: rem(15);
+  }
 
-  transition-property: color;
+  @include isHoverable {
+    @include transition;
 
-  &:hover {
-    color: var(--color-radical-red);
+    display: initial;
+    margin-top: initial;
+    transition-property: color;
+
+    &:hover {
+      color: var(--color-radical-red);
+    }
   }
 }
 
 .tagText {
   position: relative;
 
-  &::after {
-    @include transition;
+  @include isHoverable {
+    &::after {
+      @include transition;
 
-    content: '';
-    transition-property: transform;
-    transform-origin: left;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: var(--color-radical-red);
-    transform: scaleX(0);
-  }
+      content: '';
+      transition-property: transform;
+      transform-origin: left;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--color-radical-red);
+      transform: scaleX(0);
+    }
 
-  .tag:hover &::after {
-    transform: scaleX(1);
+    .tag:hover &::after {
+      transform: scaleX(1);
+    }
   }
 }
 
 .buttonWrapper {
   position: absolute;
-  bottom: 10%;
-  left: 90%;
   display: flex;
   align-items: center;
+  bottom: 5%;
+  left: 60%;
+
+  @include above('desktop') {
+    bottom: 10%;
+    left: 90%;
+  }
 }
 
 .line {
-  @include transition;
-
-  transition-property: background;
-  width: vw(60);
+  width: rem(60);
   height: 1px;
   background: var(--color-white-lilac);
 
-  .card:hover & {
-    background: var(--color-radical-red);
+  @include isHoverable {
+    @include transition;
+
+    transition-property: background;
+    width: vw(60);
+
+    .card:hover & {
+      background: var(--color-radical-red);
+    }
   }
 }
 
 .button {
-  @include transition;
-
-  transition-property: color;
-  height: vw(38);
-  padding: 0 vw(20);
+  height: rem(38);
+  padding: 0 rem(20);
   text-transform: uppercase;
-  font-size: vw(12);
+  font-size: rem(12);
   position: relative;
 
-  .buttonWrapper:hover & {
-    color: var(--color-radical-red);
+  @include isHoverable {
+    @include transition;
+
+    transition-property: color;
+    height: vw(38);
+    padding: 0 vw(20);
+    font-size: vw(12);
+
+    .buttonWrapper:hover & {
+      color: var(--color-radical-red);
+    }
   }
 }
 
 .border {
-  background: var(--color-radical-red);
+  background: var(--color-white-lilac);
   position: absolute;
 
-  &.leftBottom {
-    top: 50%;
-    left: 0;
-    bottom: 0;
-    width: 1px;
-    transform: scaleY(0);
-    transition: transform 0.1s 0.4s;
-    transform-origin: top;
+  @include isHoverable {
+    background: var(--color-radical-red);
 
-    .card:hover & {
-      transform: scaleY(1);
-      transition-delay: 0s;
+    &.leftBottom {
+      top: 50%;
+      left: 0;
+      bottom: 0;
+      width: 1px;
+      transform: scaleY(0);
+      transition: transform 0.1s 0.4s;
+      transform-origin: top;
+
+      .card:hover & {
+        transform: scaleY(1);
+        transition-delay: 0s;
+      }
     }
   }
 

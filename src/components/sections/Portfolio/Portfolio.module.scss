@@ -1,32 +1,54 @@
 @import '@/styles/shared-imports.scss';
 
 .portfolio {
-  margin-top: calc(100dvh - vw($menuHeightDesktop));
+  margin-top: calc(100dvh - vw($menuHeightMobile));
   background: var(--color-woodsmoke);
   position: relative;
   color: var(--color-white-lilac);
-  padding: vw(180) vw($globalPaddingDesktop);
+  padding: rem(60) rem($globalPaddingMobile);
   overflow: hidden;
+
+  @include above('desktop') {
+    margin-top: calc(100dvh - vw($menuHeightDesktop));
+    padding: vw(180) vw($globalPaddingDesktop);
+  }
 }
 
 .titleWrapper {
   position: absolute;
-  top: -2%;
   left: 15%;
+  top: 0;
+
+  @include above('desktop') {
+    top: -2%;
+  }
 }
 
 .title {
   color: transparent;
-  font-size: vw(220);
+  font-size: rem(70);
   font-weight: 700;
-  letter-spacing: vw(3);
+  letter-spacing: rem(3);
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
   user-select: none;
+
+  @include above('desktop') {
+    font-size: vw(220);
+    letter-spacing: vw(3);
+  }
 }
 
 .projects {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  gap: vw(150);
-  justify-content: space-between;
+  @include flex-center(column);
+
+  gap: rem(50);
+  margin-top: rem(15);
+
+  @include above('desktop') {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: vw(150);
+    margin-top: initial;
+    justify-content: space-between;
+  }
 }

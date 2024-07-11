@@ -9,7 +9,7 @@ const ScrollDown = ({ id }: IScrollDown) => {
   return (
     <Link href={`#${id}`} className={clsx(s.scrollDown)}>
       <div className={clsx(s.line)}></div>
-      Scrolle para baixo
+      Desça para mais
     </Link>
   )
 }

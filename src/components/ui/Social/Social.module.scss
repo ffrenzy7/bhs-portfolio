@@ -1,46 +1,82 @@
 @import '@/styles/shared-imports.scss';
 
 .social {
-  &.standard {
-    @include flex-center(column);
-
-    gap: vw(20);
-    position: absolute;
-    bottom: vw(40);
-    left: vw(40);
-  }
-
-  &.alternate {
+  &.hero {
     @include flex-center();
 
-    gap: vw(20);
+    gap: rem(20);
+    position: absolute;
+    bottom: rem($globalPaddingMobile);
+    left: rem($globalPaddingMobile);
+
+    @include above('desktop') {
+      @include flex-center(column);
+
+      gap: vw(20);
+      position: absolute;
+      bottom: vw(40);
+      left: vw(40);
+    }
+  }
+
+  &.footer {
+    @include flex-center();
+
+    gap: rem(20);
+    position: initial;
+
+    @include above('desktop') {
+      gap: vw(20);
+    }
   }
 }
 
 .link {
-  @include max-prop(height, rem(18), vw(18));
-  @include max-prop(width, rem(18), vw(18));
+  // @include max-prop(height, rem(18), vw(18));
+  // @include max-prop(width, rem(18), vw(18));
 
+  width: rem(18);
+  height: rem(18);
   overflow: hidden;
+
+  @include above('desktop') {
+    width: vw(18);
+    height: vw(18);
+  }
 }
 
 .wrapper {
   @include flex-center(column);
-  @include transition;
 
-  transition-property: color, transform;
-  position: relative;
+  @include above('desktop') {
+    @include transition;
 
-  &:hover {
-    transform: translateY(-100%);
-    color: var(--color-radical-red);
+    transition-property: color, transform;
+    position: relative;
+
+    @include isHoverable {
+      &:hover {
+        transform: translateY(-100%);
+        color: var(--color-radical-red);
+      }
+    }
   }
 }
 
 .icon {
+  width: 100%;
+  height: 100%;
+
   &.last {
-    position: absolute;
-    top: 100%;
-    left: 0;
+    display: none;
+  }
+
+  @include isHoverable {
+    &.last {
+      display: initial;
+      position: absolute;
+      top: 100%;
+      left: 0;
+    }
   }
 }

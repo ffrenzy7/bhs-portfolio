@@ -1,15 +1,21 @@
 @import '@/styles/shared-imports.scss';
 
 .scrollDown {
-  @include max-prop(font-size, rem(11), vw(11));
-
-  letter-spacing: vw(2);
+  font-size: rem(11);
+  letter-spacing: rem(2);
   transform: rotate(90deg);
   transform-origin: right top;
   position: absolute;
-  right: vw(40);
-  bottom: vw(20);
+  right: rem($globalPaddingMobile);
+  bottom: rem($globalPaddingMobile - 15);
   overflow: hidden;
+
+  @include above('desktop') {
+    font-size: vw(11);
+    letter-spacing: vw(2);
+    right: vw(40);
+    bottom: vw(20);
+  }
 }
 
 @keyframes lineDown {
@@ -24,8 +30,12 @@
 .line {
   animation: lineDown 2s infinite ease-in-out;
 
-  margin-bottom: vw(10);
+  margin-bottom: rem(7);
   height: 1px;
   width: 100%;
   background: var(--color-white-lilac);
+
+  @include above('desktop') {
+    margin-bottom: vw(10);
+  }
 }

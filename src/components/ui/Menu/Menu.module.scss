@@ -1,31 +1,30 @@
 @import '@/styles/shared-imports.scss';
 
 .header {
-  @include max-prop(height, rem($menuHeightMobile), vw($menuHeightDesktop));
-  @include max-prop(padding-left, rem($globalPaddingMobile), vw(40));
-  @include max-prop(padding-right, rem($globalPaddingMobile), vw(40));
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-  // height: rem($menuHeightDesktop);
-  // padding: 0 rem(40);
+  height: rem($menuHeightMobile);
+  padding: 0 rem($globalPaddingMobile);
   color: var(--color-white-lilac);
   position: relative;
   z-index: z('menu');
 
-  // @include above('desktop') {
-  //   height: vw($menuHeightDesktop);
-  //   padding: 0 vw(40);
-  // }
+  @include above('desktop') {
+    height: vw($menuHeightDesktop);
+    padding: 0 vw(40);
+  }
 }
 
 .logo {
-  @include max-prop(font-size, rem(30), vw(30));
-
+  font-size: rem(30);
   font-weight: 400;
   letter-spacing: vw(2);
   z-index: z('above');
+
+  @include above('desktop') {
+    font-size: vw(30);
+  }
 }
 
 .slash {
@@ -33,13 +32,13 @@
 }
 
 .button {
-  // text-transform: uppercase;
-  // letter-spacing: vw(4);
-  // font-size: vw(18);
-  // font-weight: 400;
   z-index: z('above');
 
   @include above('desktop') {
+    text-transform: uppercase;
+    letter-spacing: vw(4);
+    font-size: vw(18);
+    font-weight: 400;
     display: flex;
     gap: vw(30);
     align-items: center;
@@ -58,10 +57,6 @@
   @include above('desktop') {
     position: relative;
     display: initial;
-    text-transform: uppercase;
-    letter-spacing: vw(4);
-    font-size: vw(18);
-    font-weight: 400;
   }
 }
 
@@ -85,19 +80,18 @@
 }
 
 .burger {
-  @include max-prop(width, rem(40), vw(40));
-  @include max-prop(height, rem(20), vw(20));
-
-  // width: vw(40);
-  // height: vw(20);
   position: relative;
+  width: rem(35);
+
+  @include above('desktop') {
+    width: vw(35);
+  }
 }
 
 .burgerLine {
-  @include max-prop(height, rem(3), vw(3));
   @include transition;
 
-  // height: rem(3);
+  height: rem(2.5);
   background: var(--color-white-lilac);
   position: absolute;
   top: 50%;
@@ -105,12 +99,16 @@
   width: 100%;
   transition-property: transform, width;
 
+  @include above('desktop') {
+    height: vw(2.5);
+  }
+
   &.first {
-    transform: translateY(rem(-11));
+    transform: translateY(rem(-10));
     width: 75%;
 
     @include above('desktop') {
-      transform: translateY(vw(-11));
+      transform: translateY(vw(-10));
     }
 
     @include isHoverable {
@@ -132,13 +130,13 @@
   }
 
   &.last {
-    transform: translateY(rem(11));
+    transform: translateY(rem(10));
     width: 75%;
     left: initial;
     right: 0;
 
     @include above('desktop') {
-      transform: translateY(vw(11));
+      transform: translateY(vw(10));
     }
 
     @include isHoverable {
@@ -153,18 +151,26 @@
     }
   }
 
-  .button:hover & {
-    background: var(--color-radical-red);
+  @include isHoverable {
+    transition-property: transform, width, background;
+
+    .button:hover & {
+      background: var(--color-radical-red);
+    }
   }
 }
 
 .nav {
   @include position-fit(fixed);
   @include flex-center;
-  @include max-prop(font-size, rem(40), vw(40));
 
+  font-size: rem(40);
   font-weight: 600;
   pointer-events: none;
+
+  @include above('desktop') {
+    font-size: vw(40);
+  }
 
   &::before {
     @include position-fit;
@@ -191,10 +197,14 @@
   @include flex-center(column);
   @include transition;
 
-  gap: vw(20);
+  gap: rem(20);
   position: relative;
   opacity: 0;
   transition-property: opacity;
+
+  @include above('desktop') {
+    gap: vw(20);
+  }
 
   .nav.isOpen & {
     opacity: 1;
@@ -202,11 +212,13 @@
 }
 
 .item {
-  @include transition;
+  @include isHoverable {
+    @include transition;
 
-  transition-property: color;
+    transition-property: color;
 
-  &:hover {
-    color: var(--color-radical-red);
+    &:hover {
+      color: var(--color-radical-red);
+    }
   }
 }

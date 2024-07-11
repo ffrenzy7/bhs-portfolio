@@ -2,7 +2,7 @@ import Metadata from '@/components/core/Metadata'
 import Hero from '@/components/sections/Hero'
 import Portfolio from '@/components/sections/Portfolio'
 import About from '@/components/sections/About'
-import Contact from '@/components/sections/Contact'
+import Footer from '@/components/sections/Footer'
 
 // import type { IHomePage } from './HomePageTypes'
 
@@ -18,7 +18,7 @@ const HomePage = () => {
       <Hero />
       <Portfolio />
       <About />
-      <Contact />
+      <Footer />
     </>
   )
 }

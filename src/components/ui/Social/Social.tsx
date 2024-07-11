@@ -5,7 +5,7 @@ import { ISocial } from './SocialTypes'
 
 import s from './Social.module.scss'
 
-const Social = ({ type = 'standard' }: ISocial) => {
+const Social = ({ type = 'hero' }: ISocial) => {
   return (
     <div className={clsx(s.social, [s[type]])}>
       <a href="https://www.linkedin.com/" target="_blank" className={clsx(s.link)}>

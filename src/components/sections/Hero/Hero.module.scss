@@ -7,9 +7,13 @@
   width: 100%;
   height: 100dvh;
   color: var(--color-white-lilac);
-  padding: 0 vw($globalPaddingDesktop);
+  padding: 0 rem($globalPaddingMobile);
   display: flex;
   align-items: center;
+
+  @include above('desktop') {
+    padding: 0 vw($globalPaddingDesktop);
+  }
 
   // &::before {
   //   @include position-fit();
@@ -30,24 +34,36 @@
 }
 
 .name {
-  @include max-prop(font-size, rem(180), vw(180));
-
+  font-size: rem(70);
   font-weight: 700;
   line-height: 0.9;
+
+  @include above('desktop') {
+    font-size: vw(180);
+  }
 }
 
 .role {
-  @include max-prop(font-size, rem(20), vw(20));
-
+  font-size: rem(12);
   text-transform: uppercase;
-  margin-top: vw(10);
-  letter-spacing: vw(2);
+  margin-top: rem(30);
+  letter-spacing: rem(2);
+
+  @include above('desktop') {
+    font-size: vw(20);
+    margin-top: vw(10);
+    letter-spacing: vw(2);
+  }
 }
 
 .slash {
-  @include max-prop(font-size, rem(15), vw(15));
-
-  margin: 0 vw(15);
+  font-size: rem(10);
+  margin: 0 rem(10);
   color: var(--color-radical-red);
   vertical-align: middle;
+
+  @include above('desktop') {
+    font-size: vw(15);
+    margin: 0 vw(15);
+  }
 }

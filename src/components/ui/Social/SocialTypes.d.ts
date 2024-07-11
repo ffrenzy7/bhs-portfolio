@@ -1,3 +1,3 @@
 export interface ISocial {
-  type?: 'standard' | 'alternate'
+  type?: 'hero' | 'footer'
 }

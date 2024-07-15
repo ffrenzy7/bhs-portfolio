@@ -32,9 +32,6 @@
 }
 
 .link {
-  // @include max-prop(height, rem(18), vw(18));
-  // @include max-prop(width, rem(18), vw(18));
-
   width: rem(18);
   height: rem(18);
   overflow: hidden;
@@ -48,17 +45,15 @@
 .wrapper {
   @include flex-center(column);
 
-  @include above('desktop') {
+  @include isHoverable {
     @include transition;
 
     transition-property: color, transform;
     position: relative;
 
-    @include isHoverable {
-      &:hover {
-        transform: translateY(-100%);
-        color: var(--color-radical-red);
-      }
+    &:hover {
+      transform: translateY(-100%);
+      color: var(--color-radical-red);
     }
   }
 }

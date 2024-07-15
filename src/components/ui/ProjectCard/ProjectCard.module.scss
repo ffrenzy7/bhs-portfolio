@@ -1,8 +1,6 @@
 @import '@/styles/shared-imports.scss';
 
 .cardWrapper {
-  // perspective: 1500px;
-
   @include above('desktop') {
     perspective: vw(1500);
   }
@@ -15,7 +13,6 @@
     @include transition;
 
     transition-property: transform;
-    // transform: rotate3d(0);
 
     &:hover {
       transition-duration: 0.15s;

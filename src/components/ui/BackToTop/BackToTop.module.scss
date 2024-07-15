@@ -7,15 +7,15 @@
   transform: scale(0);
   background: var(--color-radical-red);
   position: fixed;
-  bottom: vw(40);
-  right: vw(40);
+  bottom: rem(70);
+  right: rem(10);
   border-radius: 50%;
   z-index: z('above');
   overflow: hidden;
   border: 1px solid var(--color-white-lilac);
   color: var(--color-white-lilac);
-  @include max-prop(height, rem(40), vw(40));
-  @include max-prop(width, rem(40), vw(40));
+  height: rem(40);
+  width: rem(40);
 
   &:active {
     color: var(--color-white-lilac);
@@ -24,19 +24,30 @@
   &.isOpen {
     transform: scale(1);
   }
+
+  @include above('desktop') {
+    bottom: vw(40);
+    right: vw(40);
+    height: vw(50);
+    width: vw(50);
+  }
 }
 
 .wrapper {
   @include flex-center(column);
-  @include transition;
 
-  transition-property: transform;
   position: relative;
   height: 100%;
   width: 100%;
 
-  .backToTop:hover & {
-    transform: translateY(-100%);
+  @include isHoverable {
+    @include transition;
+
+    transition-property: transform;
+
+    .backToTop:hover & {
+      transform: translateY(-100%);
+    }
   }
 }
 
@@ -44,9 +55,14 @@
   height: 100%;
 
   &.last {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
+    display: none;
+
+    @include above('desktop') {
+      display: initial;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 }

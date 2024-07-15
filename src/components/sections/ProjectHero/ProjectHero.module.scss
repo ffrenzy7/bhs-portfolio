@@ -3,12 +3,10 @@
 .hero {
   @include position-fit();
 
-  height: vw(434);
+  height: rem(270);
   background-image: url(../../../assets/images/project-header-bg.jpg);
   background-size: cover;
-  // background-position: center;
-  // background-repeat: no-repeat;
-  padding: 0 vw($globalPaddingDesktop);
+  padding: 0 rem($globalPaddingMobile);
   color: var(--color-white-lilac);
   display: flex;
   align-items: center;
@@ -20,6 +18,11 @@
 
     background: rgba(0, 0, 0, 0.8);
   }
+
+  @include above('desktop') {
+    height: vw(434);
+    padding: 0 vw($globalPaddingDesktop);
+  }
 }
 
 .content {
@@ -27,13 +30,25 @@
 }
 
 .title {
-  font-size: vw(100);
+  font-size: rem(35);
   font-weight: 700;
+
+  @include above('desktop') {
+    font-size: vw(100);
+  }
 }
 
 .list {
   display: flex;
-  gap: vw(20);
+  gap: rem(15);
+  font-size: rem(14);
+  margin-top: rem(10);
+
+  @include above('desktop') {
+    gap: vw(20);
+    font-size: initial;
+    margin-top: 0;
+  }
 }
 
 .slash {

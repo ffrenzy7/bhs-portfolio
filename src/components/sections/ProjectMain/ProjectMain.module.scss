@@ -1,16 +1,29 @@
 @import '@/styles/shared-imports.scss';
 
 .main {
-  margin-top: vw(434 - $menuHeightDesktop);
-  padding: vw(120) vw($globalPaddingDesktop);
+  margin-top: rem(270 - $menuHeightMobile);
+  padding: rem(50) rem($globalPaddingMobile);
   color: var(--color-mine-shaft);
+
+  @include above('desktop') {
+    margin-top: vw(434 - $menuHeightDesktop);
+    padding: vw(120) vw($globalPaddingDesktop);
+  }
 }
 
 .title {
-  font-size: vw(35);
+  font-size: rem(25);
   font-weight: 700;
+
+  @include above('desktop') {
+    font-size: vw(35);
+  }
 }
 
 .content {
-  margin-top: vw(40);
+  margin-top: rem(20);
+
+  @include above('desktop') {
+    margin-top: vw(40);
+  }
 }

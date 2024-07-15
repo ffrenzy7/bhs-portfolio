@@ -82,6 +82,8 @@
 
 .tag {
   display: block;
+  color: var(--color-radical-red);
+
   &:not(:first-child) {
     margin-top: rem(15);
   }
@@ -90,6 +92,7 @@
     @include transition;
 
     display: initial;
+    color: var(--color-white-lilac);
     margin-top: initial;
     transition-property: color;
 
@@ -102,19 +105,22 @@
 .tagText {
   position: relative;
 
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--color-radical-red);
+  }
+
   @include isHoverable {
     &::after {
       @include transition;
 
-      content: '';
       transition-property: transform;
       transform-origin: left;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: var(--color-radical-red);
       transform: scaleX(0);
     }
 
@@ -129,10 +135,11 @@
   display: flex;
   align-items: center;
   bottom: 5%;
-  left: 60%;
+  right: -10%;
 
   @include above('desktop') {
     bottom: 10%;
+    right: initial;
     left: 90%;
   }
 }
@@ -140,11 +147,12 @@
 .line {
   width: rem(60);
   height: 1px;
-  background: var(--color-white-lilac);
+  background: var(--color-radical-red);
 
   @include isHoverable {
     @include transition;
 
+    background: var(--color-white-lilac);
     transition-property: background;
     width: vw(60);
 
@@ -176,17 +184,46 @@
 }
 
 .border {
-  background: var(--color-white-lilac);
+  background: var(--color-radical-red);
   position: absolute;
 
-  @include isHoverable {
-    background: var(--color-radical-red);
+  &.leftBottom {
+    top: 50%;
+    left: 0;
+    bottom: 0;
+    width: 1px;
+  }
 
+  &.bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+  }
+
+  &.right {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 1px;
+  }
+
+  &.top {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+  }
+
+  &.leftTop {
+    top: 0;
+    left: 0;
+    bottom: 50%;
+    width: 1px;
+  }
+
+  @include isHoverable {
     &.leftBottom {
-      top: 50%;
-      left: 0;
-      bottom: 0;
-      width: 1px;
       transform: scaleY(0);
       transition: transform 0.1s 0.4s;
       transform-origin: top;
@@ -196,65 +233,49 @@
         transition-delay: 0s;
       }
     }
-  }
 
-  &.bottom {
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    transform: scaleX(0);
-    transition: transform 0.1s 0.3s;
-    transform-origin: left;
+    &.bottom {
+      transform: scaleX(0);
+      transition: transform 0.1s 0.3s;
+      transform-origin: left;
 
-    .card:hover & {
-      transform: scaleX(1);
-      transition-delay: 0.1s;
+      .card:hover & {
+        transform: scaleX(1);
+        transition-delay: 0.1s;
+      }
     }
-  }
 
-  &.right {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 1px;
-    transform: scaleY(0);
-    transition: transform 0.1s 0.2s;
-    transform-origin: bottom;
+    &.right {
+      transform: scaleY(0);
+      transition: transform 0.1s 0.2s;
+      transform-origin: bottom;
 
-    .card:hover & {
-      transform: scaleY(1);
-      transition-delay: 0.2s;
+      .card:hover & {
+        transform: scaleY(1);
+        transition-delay: 0.2s;
+      }
     }
-  }
 
-  &.top {
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    transform: scaleX(0);
-    transition: transform 0.1s 0.1s;
-    transform-origin: right;
+    &.top {
+      transform: scaleX(0);
+      transition: transform 0.1s 0.1s;
+      transform-origin: right;
 
-    .card:hover & {
-      transform: scaleX(1);
-      transition-delay: 0.3s;
+      .card:hover & {
+        transform: scaleX(1);
+        transition-delay: 0.3s;
+      }
     }
-  }
 
-  &.leftTop {
-    top: 0;
-    left: 0;
-    bottom: 50%;
-    width: 1px;
-    transform: scaleY(0);
-    transition: transform 0.1s 0s;
-    transform-origin: top;
+    &.leftTop {
+      transform: scaleY(0);
+      transition: transform 0.1s 0s;
+      transform-origin: top;
 
-    .card:hover & {
-      transform: scaleY(1);
-      transition-delay: 0.4s;
+      .card:hover & {
+        transform: scaleY(1);
+        transition-delay: 0.4s;
+      }
     }
   }
 }

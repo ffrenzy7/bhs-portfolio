@@ -4,27 +4,42 @@
   background: var(--color-white-lilac);
   color: var(--color-woodsmoke);
   position: relative;
-  padding: vw(240) vw($globalPaddingDesktop);
+  padding: rem(100) rem($globalPaddingMobile);
   overflow: hidden;
+
+  @include above('desktop') {
+    padding: vw(240) vw($globalPaddingDesktop);
+  }
 }
 
 .backTitleWrapper {
   position: absolute;
-  top: 45%;
-  left: 50%;
+  top: 20%;
+  left: 60%;
+
+  @include above('desktop') {
+    top: 45%;
+    left: 50%;
+  }
 }
 
 .backTitle {
-  // transform: translate(-50%, -50%);
   display: block;
-  font-size: vw(280);
+  font-size: rem(80);
   font-weight: 600;
-  text-shadow: 0px vw(10) vw(40) rgba(0, 0, 0, 0.08);
+  text-shadow: 0px rem(10) rem(40) rgba(0, 0, 0, 0.08);
   color: var(--color-white-lilac);
-  line-height: vw(300);
-  letter-spacing: vw(-10);
+  line-height: rem(300);
+  letter-spacing: rem(-5);
   user-select: none;
   white-space: nowrap;
+
+  @include above('desktop') {
+    font-size: vw(280);
+    text-shadow: 0px vw(10) vw(40) rgba(0, 0, 0, 0.08);
+    line-height: vw(300);
+    letter-spacing: vw(-10);
+  }
 }
 
 .content {
@@ -32,9 +47,14 @@
 }
 
 .title {
-  font-size: vw(90);
+  font-size: rem(50);
   font-weight: 600;
-  letter-spacing: vw(-3);
+  letter-spacing: rem(-3);
+
+  @include above('desktop') {
+    font-size: vw(90);
+    letter-spacing: vw(-3);
+  }
 }
 
 .underscore {
@@ -42,41 +62,57 @@
 }
 
 .description {
-  padding-left: vw(215);
-  margin-top: vw(64);
-  font-size: vw(35);
-  line-height: vw(65);
+  margin-top: rem(30);
+  font-size: rem(14);
+  line-height: 2;
   font-weight: 500;
+
+  @include above('desktop') {
+    padding-left: vw(215);
+    margin-top: vw(64);
+    font-size: vw(35);
+  }
 }
 
 .highlight {
   position: relative;
 
   &::before {
-    @include transition;
     @include position-fit;
 
-    transition-property: transform;
     content: '';
     background: var(--color-radical-red);
-    transform: scaleY(0.1);
-    transform-origin: bottom;
+
+    @include isHoverable {
+      @include transition;
+
+      transition-property: transform;
+      transform: scaleY(0.1);
+      transform-origin: bottom;
+    }
   }
 
-  &:hover::before {
-    transform: scaleY(1);
+  @include isHoverable {
+    &:hover::before {
+      transform: scaleY(1);
+    }
   }
 }
 
 .highlightText {
-  @include transition;
-
-  transition-property: color;
+  color: var(--color-white-lilac);
   font-weight: 700;
   z-index: z('above');
   position: relative;
 
-  &:hover {
-    color: var(--color-white-lilac);
+  @include isHoverable {
+    @include transition;
+
+    color: var(--color-woodsmoke);
+    transition-property: color;
+
+    &:hover {
+      color: var(--color-white-lilac);
+    }
   }
 }

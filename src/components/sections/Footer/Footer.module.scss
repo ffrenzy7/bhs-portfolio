@@ -2,27 +2,52 @@
 
 .footer {
   display: flex;
+  gap: rem(50);
   justify-content: space-between;
   align-items: center;
   background: var(--color-shark);
   color: var(--color-white-lilac);
-  padding: vw(30) vw($globalPaddingDesktop);
+  padding: rem(20) rem($globalPaddingMobile);
   position: relative;
+
+  @include above('desktop') {
+    gap: initial;
+    padding: vw(30) vw($globalPaddingDesktop);
+  }
 }
 
 .content {
   display: flex;
-  gap: vw(20);
+  gap: rem(20);
+
+  @include above('desktop') {
+    gap: vw(20);
+  }
 }
 
 .title {
-  font-size: vw(18);
+  display: none;
+  font-size: rem(12);
+
+  @include above('desktop') {
+    display: initial;
+    font-size: vw(18);
+  }
 }
 
 .underscore {
-  color: var(--color-radical-red);
+  display: none;
+
+  @include above('desktop') {
+    display: initial;
+    color: var(--color-radical-red);
+  }
 }
 
 .copyright {
-  font-size: vw(18);
+  font-size: rem(12);
+
+  @include above('desktop') {
+    font-size: vw(18);
+  }
 }

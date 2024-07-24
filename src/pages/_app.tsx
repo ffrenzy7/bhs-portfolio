@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import { Poppins } from 'next/font/google'
 import type { AppProps } from 'next/app'
 
@@ -14,7 +15,11 @@ const poppins = Poppins({
 })
 
 export default function App({ Component, pageProps }: AppProps) {
-  return (
+  const isStudio = useRouter().pathname.includes('[...studio]')
+
+  return isStudio ? (
+    <Component {...pageProps} />
+  ) : (
     <div className={poppins.className}>
       <Menu />
       <BackToTop />

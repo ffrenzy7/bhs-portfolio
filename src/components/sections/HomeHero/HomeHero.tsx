@@ -4,9 +4,13 @@ import { useEffect, useRef } from 'react'
 import Social from '@/components/ui/Social'
 import ScrollDown from '@/components/ui/ScrollDown'
 
-import s from './Hero.module.scss'
+import { IHomeHero } from './HomeHeroTypes'
 
-const Hero = () => {
+import s from './HomeHero.module.scss'
+
+const HomeHero = ({ data }: IHomeHero) => {
+  console.log('home hero data:', data)
+
   const overlayRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -53,4 +57,4 @@ const Hero = () => {
   )
 }
 
-export default Hero
+export default HomeHero

@@ -7,6 +7,7 @@ import projectPage from '@/sanity/schemas/documents/projectPage'
 
 // Components
 import bodyText from '@/sanity/schemas/components/bodyText'
+import homeHero from '@/sanity/schemas/components/homeHero'
 
 // Objects
 import externalLink from '@/sanity/schemas/objects/externalLink'
@@ -31,6 +32,7 @@ const schemas = [
 
   // Components
   bodyText,
+  homeHero,
 
   // Objects
   externalLink,

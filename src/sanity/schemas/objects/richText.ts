@@ -49,5 +49,5 @@ export interface ISanityRichText {
   _type: 'richText'
   _key: string
 
-  body: (typeof PortableTextBlock)[]
+  body: PortableTextBlock[]
 }

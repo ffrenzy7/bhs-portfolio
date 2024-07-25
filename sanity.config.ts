@@ -34,7 +34,6 @@ export default defineConfig({
       if (singletonsList.includes(schemaType)) {
         return prev.filter((prevAction) => prevAction.action == 'publish')
       }
-
       return prev
     },
   },

@@ -7,7 +7,7 @@ import s from './Menu.module.scss'
 const Menu = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
-  const scrollToSection = (event: MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  const scrollToSection = (event: MouseEvent<HTMLAnchorElement>) => {
     setIsOpen(false)
 
     event.preventDefault()
@@ -50,15 +50,17 @@ const Menu = () => {
           <li className={clsx(s.item)}>
             <Link href="/">Home</Link>
           </li>
+
           <li className={clsx(s.item)}>
-            {/* <Link href="#portfolio" onClick={() => setIsOpen(false)}> */}
-            <Link href="#portfolio" onClick={scrollToSection}>
+            <Link href="/#portfolio" onClick={scrollToSection}>
               Projetos
             </Link>
           </li>
-          {/* <li className={clsx(s.item)} onClick={() => setIsOpen(false)}> */}
-          <li className={clsx(s.item)} onClick={scrollToSection}>
-            <Link href="#about">Sobre Mim</Link>
+
+          <li className={clsx(s.item)}>
+            <Link href="/#about" onClick={scrollToSection}>
+              Sobre Mim
+            </Link>
           </li>
         </ul>
       </nav>

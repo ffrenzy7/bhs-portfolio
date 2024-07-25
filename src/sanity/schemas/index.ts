@@ -6,13 +6,7 @@ import homePage from '@/sanity/schemas/singletons/homePage'
 import projectPage from '@/sanity/schemas/documents/projectPage'
 
 // Components
-import aboutHero from '@/sanity/schemas/components/aboutHero'
-import awardsList from '@/sanity/schemas/components/awardsList'
 import bodyText from '@/sanity/schemas/components/bodyText'
-import contact from '@/sanity/schemas/components/contact'
-import projectMedia from '@/sanity/schemas/components/projectMedia'
-import projectsList from '@/sanity/schemas/components/projectsList'
-import technologies from '@/sanity/schemas/components/technologies'
 
 // Objects
 import externalLink from '@/sanity/schemas/objects/externalLink'
@@ -36,13 +30,7 @@ const schemas = [
   projectPage,
 
   // Components
-  aboutHero,
-  awardsList,
   bodyText,
-  contact,
-  projectMedia,
-  projectsList,
-  technologies,
 
   // Objects
   externalLink,

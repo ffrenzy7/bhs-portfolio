@@ -3,12 +3,11 @@ import { PresentationIcon } from '@sanity/icons'
 
 import { formatSlug } from '@/sanity/lib/utils'
 import { PageType } from '@/sanity/types/enums'
-import projectsList from '@/sanity/schemas/components/projectsList'
+// import projectsList from '@/sanity/schemas/components/projectsList'
 import type { ISanityMetadata } from '@/sanity/schemas/objects/metadata'
-import type { ISanityProjectsList } from '@/sanity/schemas/components/projectsList'
 import type { ISanitySEO } from '@/sanity/schemas/objects/seo'
 
-const components: { type: string }[] = [defineArrayMember({ type: projectsList.name })]
+// const components: { type: string }[] = [defineArrayMember({ type: projectsList.name })]
 
 export default defineType({
   name: PageType.Home,
@@ -67,14 +66,14 @@ export default defineType({
       description: 'Search Engine Optimization related features.',
       group: 'seo',
     }),
-    defineField({
-      name: 'components',
-      title: 'Components',
-      type: 'array',
-      description: 'Content related components. These build the body of the page.',
-      group: 'components',
-      of: components,
-    }),
+    // defineField({
+    //   name: 'components',
+    //   title: 'Components',
+    //   type: 'array',
+    //   description: 'Content related components. These build the body of the page.',
+    //   group: 'components',
+    //   of: components,
+    // }),
   ],
   preview: {
     select: {
@@ -100,5 +99,5 @@ export interface ISanityHomePage {
   metadata: ISanityMetadata
   seo: ISanitySEO
 
-  components: [ISanityProjectsList]
+  // components: [ISanityProjectsList]
 }

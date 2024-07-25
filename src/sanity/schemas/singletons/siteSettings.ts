@@ -23,15 +23,6 @@ export default defineType({
       name: 'menu',
       title: 'Menu',
     },
-    {
-      name: 'copy',
-      title: 'Copy',
-    },
-    // TODO add it
-    // {
-    //   name: 'error404',
-    //   title: '404',
-    // },
   ],
   fields: [
     defineField({
@@ -65,15 +56,6 @@ export default defineType({
       description: 'Menu navigation displayed on all pages.',
       group: 'menu',
     }),
-    defineField({
-      name: 'nextProjectText',
-      title: 'Next project text',
-      type: 'string',
-      description:
-        'The text that will be displayed on the Next Project section at the end of the page, together with the name of the next project.',
-      group: 'copy',
-      validation: (Rule) => Rule.required(),
-    }),
   ],
   preview: {
     select: {
@@ -94,6 +76,4 @@ export interface ISanitySiteSettings {
   metadata: ISanityMetadata
 
   menu: ISanityMenu
-
-  nextProjectText: string
 }

@@ -1,7 +1,7 @@
-import Hero from '@/components/sections/Hero'
 import Portfolio from '@/components/sections/Portfolio'
 import About from '@/components/sections/About'
 import Footer from '@/components/sections/Footer'
+import ComponentsRenderer from '@/components/core/ComponentsRenderer'
 
 import type { IHomePage } from './HomePageTypes'
 
@@ -12,7 +12,9 @@ const HomePage = ({ data }: IHomePage) => {
 
   return (
     <>
-      <Hero />
+      <ComponentsRenderer components={data.components} />
+
+      {/* <HomeHero /> */}
       <Portfolio />
       <About />
       <Footer />

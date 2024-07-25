@@ -1,29 +1,41 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 
+import client from '@/sanity/lib/client'
+import projectPageQuery, {
+  projectPathsQuery,
+} from '@/sanity/queries/documents/projectPage'
+import siteSettingsQuery from '@/sanity/queries/singletons/siteSettings'
+
 import ProjectPage from '@/components/pages/ProjectPage'
 
-// const PROJECT_SUB_DIRECTORY_NAME = 'project'
+import { PROJECT_SUB_DIRECTORY_NAME } from '@/constants'
 
-export default function Project({ data }: any) {
+import type { IProjectPage } from '@/components/pages/ProjectPage/ProjectPageTypes'
+
+export default function Project({ data }: IProjectPage) {
   return <ProjectPage data={data} />
 }
 
 export const getStaticProps: GetStaticProps = async ({ params, draftMode }) => {
-  const data = { slug: params?.slug, title: params?.slug }
+  const queryParams = {
+    slug: params?.slug ? `${PROJECT_SUB_DIRECTORY_NAME}/${params?.slug}` : '',
+  }
+
+  const data = await client.fetch(projectPageQuery, queryParams)
+  const siteSettings = await client.fetch(siteSettingsQuery)
+
+  if (!data) return { notFound: true }
 
   return {
     props: {
       data,
+      siteSettings,
     },
   }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  // const paths = await client.fetch(projectPathsQuery)
-
-  const paths = ['projeto1', 'projeto2', 'projeto3'].map((slug) => ({
-    params: { slug },
-  }))
+  const paths = await client.fetch(projectPathsQuery)
 
   return { paths, fallback: true }
 }

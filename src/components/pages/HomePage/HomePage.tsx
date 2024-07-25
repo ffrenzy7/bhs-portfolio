@@ -1,20 +1,17 @@
-import Metadata from '@/components/core/Metadata'
 import Hero from '@/components/sections/Hero'
 import Portfolio from '@/components/sections/Portfolio'
 import About from '@/components/sections/About'
 import Footer from '@/components/sections/Footer'
 
-// import type { IHomePage } from './HomePageTypes'
+import type { IHomePage } from './HomePageTypes'
 
-const HomePage = () => {
+const HomePage = ({ data }: IHomePage) => {
+  console.log(data)
+
+  if (!data) return null
+
   return (
     <>
-      <Metadata
-        title="BHS Portfolio"
-        description="Bruno Henrique Engenheiro"
-        metatags="portfolio, engenheiro, bhs"
-      />
-
       <Hero />
       <Portfolio />
       <About />

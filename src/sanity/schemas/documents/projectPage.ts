@@ -5,23 +5,14 @@ import { createSlug, formatSlug } from '@/sanity/lib/utils'
 import { imageField } from '@/sanity/lib/fields'
 import { PageType } from '@/sanity/types/enums'
 import bodyText from '@/sanity/schemas/components/bodyText'
-import technologies from '@/sanity/schemas/components/technologies'
-import projectMedia from '@/sanity/schemas/components/projectMedia'
 import type { ISanityBodyText } from '@/sanity/schemas/components/bodyText'
-import type { ISanityFlexiMedia } from '@/sanity/schemas/objects/flexiMedia'
 import type { ISanityImage } from '@/sanity/types/image'
 import type { ISanityMetadata } from '@/sanity/schemas/objects/metadata'
-import type { ISanityProjectMedia } from '@/sanity/schemas/components/projectMedia'
 import type { ISanitySEO } from '@/sanity/schemas/objects/seo'
-import type { ISanityTechnologies } from '@/sanity/schemas/components/technologies'
 
 import { PROJECT_SUB_DIRECTORY_NAME } from '@/constants'
 
-const components: { type: string }[] = [
-  defineArrayMember({ type: bodyText.name }),
-  defineArrayMember({ type: projectMedia.name }),
-  defineArrayMember({ type: technologies.name }),
-]
+const components: { type: string }[] = [defineArrayMember({ type: bodyText.name })]
 
 export default defineType({
   name: PageType.Project,
@@ -79,28 +70,12 @@ export default defineType({
           `${PROJECT_SUB_DIRECTORY_NAME}/${input ? createSlug(input) : 'uid'}`,
       },
     }),
-    defineField({
-      name: 'year',
-      title: 'Year',
-      type: 'string',
-      description: 'The year the project was finished.',
-      group: 'main',
-      validation: (Rule) => Rule.required(),
-    }),
     imageField({
       name: 'thumbnail',
       title: 'Thumbnail',
       type: 'image',
       description:
         'The cover image that will be displayed on Home page. Dimensions: 1366x768',
-      group: 'main',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'media',
-      title: 'Media',
-      type: 'flexiMedia',
-      description: 'Image or video displayed on hero section of the Project page.',
       group: 'main',
       validation: (Rule) => Rule.required(),
     }),
@@ -149,21 +124,15 @@ export interface ISanityProjectPage {
   _type: string
   title: string
   slug: string
-  year: string
-  primaryColor: string
-  secondaryColor: string
-  media: ISanityFlexiMedia
 
   metadata: ISanityMetadata
   seo: ISanitySEO
 
-  components: [ISanityBodyText | ISanityProjectMedia | ISanityTechnologies]
+  components: [ISanityBodyText]
 }
 
 export interface ISanityProjectThumbnail {
   title: string
   slug: string
-  primaryColor: string
-  secondaryColor: string
   thumbnail: ISanityImage
 }

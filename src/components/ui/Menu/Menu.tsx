@@ -2,9 +2,11 @@ import { useState, MouseEvent } from 'react'
 import Link from 'next/link'
 import clsx from 'clsx'
 
+import { IMenu } from './MenuTypes'
+
 import s from './Menu.module.scss'
 
-const Menu = () => {
+const Menu = ({ logoText }: IMenu) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const scrollToSection = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -24,7 +26,8 @@ const Menu = () => {
   return (
     <header className={clsx(s.header)}>
       <Link className={clsx(s.logo)} href="/">
-        <span className={clsx(s.slash)}>/</span>BHS
+        <span className={clsx(s.slash)}>/</span>
+        {logoText}
       </Link>
 
       <button

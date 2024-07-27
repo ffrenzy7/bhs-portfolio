@@ -27,7 +27,7 @@ export default defineConfig({
   document: {
     // Hide + icon for creating a new document in singletons
     // Also hide document from "+ Create" button
-    newDocumentOptions: (prev, context) => {
+    newDocumentOptions: (prev) => {
       return prev.filter((document) => !singletonsList.includes(document.templateId))
     },
     actions: (prev, { schemaType }) => {

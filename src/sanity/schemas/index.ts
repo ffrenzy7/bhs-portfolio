@@ -17,7 +17,6 @@ import flexiLinkWithLabel from '@/sanity/schemas/objects/flexiLinkWithLabel'
 import flexiMedia from '@/sanity/schemas/objects/flexiMedia'
 import internalLink from '@/sanity/schemas/objects/internalLink'
 import internalLinkWithLabel from '@/sanity/schemas/objects/internalLinkWithLabel'
-import menu from '@/sanity/schemas/objects/menu'
 import metadata from '@/sanity/schemas/objects/metadata'
 import richText from '@/sanity/schemas/objects/richText'
 import seo from '@/sanity/schemas/objects/seo'
@@ -42,7 +41,6 @@ const schemas = [
   flexiMedia,
   internalLink,
   internalLinkWithLabel,
-  menu,
   metadata,
   richText,
   seo,

@@ -1,15 +1,21 @@
 import { defineField, defineType } from 'sanity'
-import { StarFilledIcon } from '@sanity/icons'
+import { StarFilledIcon, TextIcon } from '@sanity/icons'
 
 export default defineType({
   name: 'homeHero',
-  title: 'Home Hero',
+  title: 'Banner Home',
   type: 'object',
   icon: StarFilledIcon,
   fields: [
     defineField({
-      name: 'title',
-      title: 'Título',
+      name: 'firstName',
+      title: 'Nome',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'lastName',
+      title: 'Sobrenome',
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
@@ -27,15 +33,17 @@ export default defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'scrollDown',
+      title: 'Desça para mais',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
   ],
   preview: {
-    select: {
-      title: 'title',
-    },
-    prepare({ title }) {
+    prepare() {
       return {
-        title,
-        subtitle: 'Home Hero',
+        title: 'Banner Home',
       }
     },
   },
@@ -45,6 +53,8 @@ export interface ISanityHomeHero {
   _type: 'homeHero'
   _key: string
 
-  title: string
+  firstName: string
+  lastName: string
   roles: string[]
+  scrollDown: string
 }

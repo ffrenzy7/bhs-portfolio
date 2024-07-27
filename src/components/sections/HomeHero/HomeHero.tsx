@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { useEffect, useRef } from 'react'
+import { Fragment, useEffect, useRef } from 'react'
 
 import Social from '@/components/ui/Social'
 import ScrollDown from '@/components/ui/ScrollDown'
@@ -9,8 +9,6 @@ import { IHomeHero } from './HomeHeroTypes'
 import s from './HomeHero.module.scss'
 
 const HomeHero = ({ data }: IHomeHero) => {
-  console.log('home hero data:', data)
-
   const overlayRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -38,21 +36,26 @@ const HomeHero = ({ data }: IHomeHero) => {
       <div className={clsx(s.overlay)} ref={overlayRef} />
       <div>
         <h1 className={clsx(s.name)}>
-          Bruno
+          {data.firstName}
           <br />
-          Henrique
+          {data.lastName}
         </h1>
 
         <h2 className={clsx(s.role)}>
-          Cargo 1<span className={clsx(s.slash)}> / </span>
-          Cargo 2<span className={clsx(s.slash)}> / </span>
-          Cargo 3
+          {data?.roles?.map((role, index) => (
+            <Fragment key={index}>
+              {role}
+              {index < data.roles.length - 1 && (
+                <span className={clsx(s.slash)}> / </span>
+              )}
+            </Fragment>
+          ))}
         </h2>
       </div>
 
       <Social />
 
-      <ScrollDown id="portfolio" />
+      <ScrollDown buttonText={data?.scrollDown} id="portfolio" />
     </main>
   )
 }

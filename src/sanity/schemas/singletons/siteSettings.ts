@@ -3,58 +3,53 @@ import { CogIcon } from '@sanity/icons'
 
 import { PageType } from '@/sanity/types/enums'
 import type { ISanityMetadata } from '@/sanity/schemas/objects/metadata'
-import type { ISanityMenu } from '@/sanity/schemas/objects/menu'
 
 export default defineType({
   name: PageType.SiteSettings,
-  title: 'Settings',
+  title: 'Configurações',
   type: 'document',
   icon: CogIcon,
   groups: [
     {
       name: 'main',
-      title: 'Main',
+      title: 'Principal',
     },
     {
       name: 'metadata',
-      title: 'Metadata',
-    },
-    {
-      name: 'menu',
-      title: 'Menu',
+      title: 'Metadados',
     },
   ],
   fields: [
     defineField({
       name: 'title',
-      title: 'Title',
+      title: 'Título',
       type: 'string',
       description:
-        'This title will not be public. Use a descriptive page name so you can easily find this page later in the CMS.',
+        'Este título não será visto pelo usuário. Use somente para referência interna.',
       group: 'main',
     }),
     defineField({
       name: 'titlePrefix',
-      title: 'Title prefix',
+      title: 'Prefixo do título',
       type: 'string',
       description:
-        'A text that comes before the title of the page and will be applied to all pages.',
+        'O texto que será exibido antes do título da página e será aplicado em todas as páginas.',
+      group: 'metadata',
+    }),
+    defineField({
+      name: 'logoText',
+      title: 'Texto do logo',
+      type: 'string',
+      description: 'O texto que será exibido no logo do menu em todas as páginas.',
       group: 'metadata',
     }),
     defineField({
       name: 'metadata',
-      title: 'Metadata',
+      title: 'Metadados',
       type: 'metadata',
       description:
-        'Use these as the "standard" metadata. Any metadata specified in the pages will override these.',
+        'Use como metadado padrão. Qualquer metadado especificado nas páginas irão sobreescrever este.',
       group: 'metadata',
-    }),
-    defineField({
-      name: 'menu',
-      title: 'Menu',
-      type: 'menu',
-      description: 'Menu navigation displayed on all pages.',
-      group: 'menu',
     }),
   ],
   preview: {
@@ -70,10 +65,9 @@ export default defineType({
 })
 
 export interface ISanitySiteSettings {
-  title?: string
-  titlePrefix?: string
+  title: string
+  titlePrefix: string
+  logoText: string
 
   metadata: ISanityMetadata
-
-  menu: ISanityMenu
 }

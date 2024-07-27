@@ -18,11 +18,11 @@ export default defineType({
   groups: [
     {
       name: 'main',
-      title: 'Main',
+      title: 'Principal',
     },
     {
       name: 'metadata',
-      title: 'Metadata',
+      title: 'Metadados',
     },
     {
       name: 'seo',
@@ -30,23 +30,23 @@ export default defineType({
     },
     {
       name: 'components',
-      title: 'Components',
+      title: 'Componentes',
     },
   ],
   fields: [
     defineField({
       name: 'title',
-      title: 'Page title',
+      title: 'Título da página',
       type: 'string',
       description:
-        'This title will not be public. Use a descriptive page name so you can easily find this page later in the CMS.',
+        'Este título não será visto pelo usuário. Use somente para referência interna.',
       group: 'main',
     }),
     defineField({
       name: 'slug',
-      title: 'Slug',
+      title: 'URL',
       type: 'slug',
-      description: 'Relative URL of the page to be located in the website.',
+      description: 'Texto que será exibido na URL da página. Ex.: /home',
       group: 'main',
       options: {
         source: 'title',
@@ -55,24 +55,24 @@ export default defineType({
     }),
     defineField({
       name: 'metadata',
-      title: 'Metadata',
+      title: 'Metadados',
       type: 'metadata',
-      description: 'Make sure to fill in the metadata for social sharing.',
+      description: 'Preencha os metadados para fins de compartilhamento.',
       group: 'metadata',
     }),
     defineField({
       name: 'seo',
       title: 'SEO',
       type: 'seo',
-      description: 'Search Engine Optimization related features.',
+      description: 'Search Engine Optimization (Otimização de busca).',
       group: 'seo',
     }),
 
     defineField({
       name: 'components',
-      title: 'Components',
+      title: 'Componentes',
       type: 'array',
-      description: 'Content related components. These build the body of the page.',
+      description: 'Componentes relacionados aos conteúdos.',
       group: 'components',
       of: components,
     }),

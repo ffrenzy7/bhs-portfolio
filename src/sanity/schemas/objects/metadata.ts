@@ -5,32 +5,29 @@ import type { ISanityImage } from '@/sanity/types/image'
 
 export default defineType({
   name: 'metadata',
-  title: 'Metadata',
+  title: 'Metadados',
   type: 'object',
   icon: InfoOutlineIcon,
   fields: [
     defineField({
       name: 'title',
-      title: 'Title',
+      title: 'Título',
       type: 'string',
-      description: 'Page title and meta title. Max 70 characters.',
-      validation: (Rule) =>
-        Rule.max(70).warning('Should be under 70 characters'),
+      description: 'Título (Metadado) da página. Máximo 70 caracteres.',
+      validation: (Rule) => Rule.max(70).warning('Deve ter menos de 70 caracteres'),
     }),
     defineField({
       name: 'description',
-      title: 'Description',
+      title: 'Descrição',
       type: 'string',
-      description: 'Meta description. Max 155 characters.',
-      validation: (Rule) =>
-        Rule.max(155).warning('Should be under 155 characters'),
+      description: 'Descricão (Metadado) da página. Máximo 155 caracteres.',
+      validation: (Rule) => Rule.max(155).warning('Deve ter menos de 155 caracteres'),
     }),
     defineField({
       name: 'image',
-      title: 'Image',
+      title: 'Imagem',
       type: 'image',
-      description:
-        'The recommended size for an OG Image is 1.91:1. The recommended pixel dimensions of 1200:630 px.',
+      description: 'Formato recomendado: 1200x630px',
       options: {
         hotspot: true,
       },

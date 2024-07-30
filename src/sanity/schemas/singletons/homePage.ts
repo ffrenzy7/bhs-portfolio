@@ -3,12 +3,8 @@ import { PresentationIcon } from '@sanity/icons'
 
 import { formatSlug } from '@/sanity/lib/utils'
 import { PageType } from '@/sanity/types/enums'
-import homeHero from '@/sanity/schemas/components/homeHero'
 import type { ISanityMetadata } from '@/sanity/schemas/objects/metadata'
 import type { ISanitySEO } from '@/sanity/schemas/objects/seo'
-import type { ISanityHomeHero } from '@/sanity/schemas/components/homeHero'
-
-const components: { type: string }[] = [defineArrayMember({ type: homeHero.name })]
 
 export default defineType({
   name: PageType.Home,
@@ -29,8 +25,8 @@ export default defineType({
       title: 'SEO',
     },
     {
-      name: 'components',
-      title: 'Componentes',
+      name: 'hero',
+      title: 'Banner Home',
     },
   ],
   fields: [
@@ -54,6 +50,46 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'homeHero',
+      title: 'Banner Home',
+      type: 'object',
+      group: 'hero',
+      fields: [
+        defineField({
+          name: 'firstName',
+          title: 'Nome',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'lastName',
+          title: 'Sobrenome',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'roles',
+          title: 'Cargos',
+          type: 'array',
+          validation: (Rule) => Rule.required().min(1).max(3),
+          of: [
+            defineField({
+              name: 'role',
+              title: 'Cargo',
+              type: 'string',
+              validation: (Rule) => Rule.required().min(1).max(50),
+            }),
+          ],
+        }),
+        defineField({
+          name: 'scrollDown',
+          title: 'Texto do botão de rolagem',
+          type: 'string',
+          placeholder: 'Desça para mais',
+        }),
+      ],
+    }),
+    defineField({
       name: 'metadata',
       title: 'Metadados',
       type: 'metadata',
@@ -66,15 +102,6 @@ export default defineType({
       type: 'seo',
       description: 'Search Engine Optimization (Otimização de busca).',
       group: 'seo',
-    }),
-
-    defineField({
-      name: 'components',
-      title: 'Componentes',
-      type: 'array',
-      description: 'Componentes relacionados aos conteúdos.',
-      group: 'components',
-      of: components,
     }),
   ],
   preview: {
@@ -91,6 +118,13 @@ export default defineType({
   },
 })
 
+export interface ISanityHomePageHomeHero {
+  firstName: string
+  lastName: string
+  roles: string[]
+  scrollDown: string
+}
+
 export interface ISanityHomePage {
   _id: string
   _createdAt: string
@@ -98,8 +132,8 @@ export interface ISanityHomePage {
   title?: string
   slug: string
 
+  homeHero: ISanityHomePageHomeHero
+
   metadata: ISanityMetadata
   seo: ISanitySEO
-
-  components: [ISanityHomeHero]
 }

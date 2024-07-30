@@ -8,8 +8,8 @@ import HomePage from '@/components/pages/HomePage'
 
 import type { IHomePage } from '@/components/pages/HomePage/HomePageTypes'
 
-const Home = ({ data }: IHomePage) => {
-  return <HomePage data={data} />
+const Home = ({ data, social }: IHomePage) => {
+  return <HomePage data={data} social={social} />
 }
 
 export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
@@ -19,6 +19,7 @@ export const getStaticProps: GetStaticProps = async (context: GetStaticPropsCont
   return {
     props: {
       data,
+      social: siteSettings?.social,
       siteSettings,
     },
   }

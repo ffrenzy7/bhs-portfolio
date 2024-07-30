@@ -1,5 +1,7 @@
-import type { ISanityHomeHero } from '@/sanity/schemas/components/homeHero'
+import type { ISanityHomePageHomeHero } from '@/sanity/schemas/singletons/homePage'
+import type { ISanitySiteSettingsSocial } from '@/sanity/schemas/singletons/siteSettings'
 
 export interface IHomeHero {
-  data: ISanityHomeHero
+  data: ISanityHomePageHomeHero
+  social: ISanitySiteSettingsSocial
 }

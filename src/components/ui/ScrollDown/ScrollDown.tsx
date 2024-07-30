@@ -20,7 +20,7 @@ const ScrollDown = ({ buttonText, id }: IScrollDown) => {
   return (
     <Link href={`#${id}`} className={clsx(s.scrollDown)} onClick={scrollToSection}>
       <div className={clsx(s.line)}></div>
-      {buttonText}
+      {buttonText || 'Desça para mais'}
     </Link>
   )
 }

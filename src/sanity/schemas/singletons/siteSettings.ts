@@ -2,6 +2,7 @@ import { defineField, defineType } from 'sanity'
 import { CogIcon } from '@sanity/icons'
 
 import { PageType } from '@/sanity/types/enums'
+import type { ISanityMenuText } from '@/sanity/schemas/objects/menuText'
 import type { ISanityMetadata } from '@/sanity/schemas/objects/metadata'
 
 export default defineType({
@@ -37,6 +38,13 @@ export default defineType({
       title: 'Texto do logo',
       type: 'string',
       description: 'O texto que será exibido no logo do menu em todas as páginas.',
+      group: 'main',
+    }),
+    defineField({
+      name: 'menuText',
+      title: 'Textos do menu',
+      type: 'menuText',
+      description: 'O texto que será exibido nos links do Menu.',
       group: 'main',
     }),
     defineField({
@@ -115,6 +123,7 @@ export interface ISanitySiteSettingsSocial {
 export interface ISanitySiteSettings {
   title: string
   logoText: string
+  menuText: ISanityMenuText
 
   social: ISanitySiteSettingsSocial
 

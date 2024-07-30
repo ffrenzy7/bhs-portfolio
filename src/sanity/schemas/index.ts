@@ -19,6 +19,7 @@ import internalLinkWithLabel from '@/sanity/schemas/objects/internalLinkWithLabe
 import metadata from '@/sanity/schemas/objects/metadata'
 import richText from '@/sanity/schemas/objects/richText'
 import seo from '@/sanity/schemas/objects/seo'
+import menuText from '@/sanity/schemas/objects/menuText'
 
 const schemas = [
   // Singletons
@@ -42,6 +43,7 @@ const schemas = [
   metadata,
   richText,
   seo,
+  menuText,
 ]
 
 export default schemas

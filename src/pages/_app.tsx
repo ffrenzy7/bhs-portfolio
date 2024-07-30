@@ -41,7 +41,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <SEO data={data?.seo} />
 
       <div className={poppins.className}>
-        <Menu logoText={siteSettings?.logoText} />
+        <Menu menuText={siteSettings?.menuText} logoText={siteSettings?.logoText} />
         <BackToTop />
         <Component {...pageProps} />
         <Footer social={siteSettings?.social} />

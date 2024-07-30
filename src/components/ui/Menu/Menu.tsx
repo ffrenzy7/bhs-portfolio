@@ -6,7 +6,9 @@ import { IMenu } from './MenuTypes'
 
 import s from './Menu.module.scss'
 
-const Menu = ({ logoText }: IMenu) => {
+const Menu = ({ logoText, menuText }: IMenu) => {
+  console.log(menuText)
+
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const scrollToSection = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -51,18 +53,18 @@ const Menu = ({ logoText }: IMenu) => {
       <nav className={clsx(s.nav, { [s.isOpen]: isOpen })}>
         <ul className={clsx(s.list)}>
           <li className={clsx(s.item)}>
-            <Link href="/">Home</Link>
+            <Link href="/">{menuText?.home || 'Home'}</Link>
           </li>
 
           <li className={clsx(s.item)}>
             <Link href="/#portfolio" onClick={scrollToSection}>
-              Projetos
+              {menuText?.portfolio || 'Portfolio'}
             </Link>
           </li>
 
           <li className={clsx(s.item)}>
             <Link href="/#about" onClick={scrollToSection}>
-              Sobre Mim
+              {menuText?.about || 'Sobre Mim'}
             </Link>
           </li>
         </ul>

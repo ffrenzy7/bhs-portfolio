@@ -4,8 +4,6 @@ import ProjectMain from '@/components/sections/ProjectMain'
 import type { IProjectPage } from './ProjectPageTypes'
 
 const ProjectPage = ({ data }: IProjectPage) => {
-  console.log(data)
-
   if (!data) return null
 
   return (

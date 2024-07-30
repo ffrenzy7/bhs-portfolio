@@ -17,16 +17,16 @@ export default defineType({
       title: 'Principal',
     },
     {
+      name: 'hero',
+      title: 'Banner Home',
+    },
+    {
       name: 'metadata',
       title: 'Metadados',
     },
     {
       name: 'seo',
       title: 'SEO',
-    },
-    {
-      name: 'hero',
-      title: 'Banner Home',
     },
   ],
   fields: [

@@ -4,11 +4,11 @@ import { Fragment, useEffect, useRef } from 'react'
 import Social from '@/components/ui/Social'
 import ScrollDown from '@/components/ui/ScrollDown'
 
-import { IHomeHero } from './HomeHeroTypes'
+import type { IHomeHero } from './HomeHeroTypes'
 
 import s from './HomeHero.module.scss'
 
-const HomeHero = ({ data }: IHomeHero) => {
+const HomeHero = ({ data, social }: IHomeHero) => {
   const overlayRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -53,9 +53,9 @@ const HomeHero = ({ data }: IHomeHero) => {
         </h2>
       </div>
 
-      <Social />
+      <Social data={social} />
 
-      <ScrollDown buttonText={data?.scrollDown} id="portfolio" />
+      <ScrollDown buttonText={data?.scrollDown || 'Desça para mais'} id="portfolio" />
     </main>
   )
 }

@@ -15,6 +15,10 @@ export default defineType({
       title: 'Principal',
     },
     {
+      name: 'social',
+      title: 'Redes Sociais',
+    },
+    {
       name: 'metadata',
       title: 'Metadados',
     },
@@ -29,18 +33,55 @@ export default defineType({
       group: 'main',
     }),
     defineField({
+      name: 'logoText',
+      title: 'Texto do logo',
+      type: 'string',
+      description: 'O texto que será exibido no logo do menu em todas as páginas.',
+      group: 'main',
+    }),
+    defineField({
+      name: 'social',
+      title: 'Redes Sociais',
+      type: 'object',
+      group: 'social',
+      fields: [
+        defineField({
+          name: 'linkedin',
+          title: 'LinkedIn',
+          type: 'url',
+        }),
+        defineField({
+          name: 'behance',
+          title: 'Behance',
+          type: 'url',
+        }),
+        defineField({
+          name: 'mail',
+          title: 'E-mail',
+          description:
+            'Insira mailto: antes do endereço de e-mail. Exemplo: mailto:meu@email.com',
+          type: 'url',
+          validation: (Rule) =>
+            Rule.uri({
+              allowRelative: true,
+              scheme: ['mailto'],
+            }),
+        }),
+        defineField({
+          name: 'whatsapp',
+          title: 'WhatsApp',
+          description:
+            'Insira no formato https://wa.me/<CodigoDoPais><DDD><Numero> sem parênteses ou traços. Exemplo: https://wa.me/5511912345678',
+          type: 'url',
+        }),
+      ],
+    }),
+    defineField({
       name: 'titlePrefix',
       title: 'Prefixo do título',
       type: 'string',
       description:
         'O texto que será exibido antes do título da página e será aplicado em todas as páginas.',
-      group: 'metadata',
-    }),
-    defineField({
-      name: 'logoText',
-      title: 'Texto do logo',
-      type: 'string',
-      description: 'O texto que será exibido no logo do menu em todas as páginas.',
       group: 'metadata',
     }),
     defineField({
@@ -64,10 +105,19 @@ export default defineType({
   },
 })
 
+export interface ISanitySiteSettingsSocial {
+  linkedin?: string
+  behance?: string
+  mail?: string
+  whatsapp?: string
+}
+
 export interface ISanitySiteSettings {
   title: string
-  titlePrefix: string
   logoText: string
 
+  social: ISanitySiteSettingsSocial
+
+  titlePrefix: string
   metadata: ISanityMetadata
 }

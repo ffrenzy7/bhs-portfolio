@@ -1,4 +1,4 @@
 export interface IScrollDown {
-  buttonText: string
+  buttonText?: string
   id: string
 }

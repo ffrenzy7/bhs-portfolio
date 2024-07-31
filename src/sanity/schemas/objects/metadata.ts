@@ -14,14 +14,14 @@ export default defineType({
       title: 'Título',
       type: 'string',
       description: 'Título (Metadado) da página. Máximo 70 caracteres.',
-      validation: (Rule) => Rule.max(70).warning('Deve ter menos de 70 caracteres'),
+      validation: (Rule) => Rule.max(70).warning('Deve ter até 70 caracteres'),
     }),
     defineField({
       name: 'description',
       title: 'Descrição',
       type: 'string',
       description: 'Descricão (Metadado) da página. Máximo 155 caracteres.',
-      validation: (Rule) => Rule.max(155).warning('Deve ter menos de 155 caracteres'),
+      validation: (Rule) => Rule.max(155).warning('Deve ter até 155 caracteres'),
     }),
     defineField({
       name: 'image',

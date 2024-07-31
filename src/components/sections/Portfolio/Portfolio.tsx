@@ -3,6 +3,8 @@ import clsx from 'clsx'
 import ProjectCard from '@/components/ui/ProjectCard'
 import ScrollingText from '@/components/ui/ScrollingText'
 
+import type { IPortfolio } from '@/components/sections/Portfolio/PortfolioTypes'
+
 import s from './Portfolio.module.scss'
 
 const mockData = [
@@ -44,16 +46,16 @@ const mockData = [
   },
 ]
 
-const Portfolio = () => {
+const Portfolio = ({ data }: IPortfolio) => {
   return (
     <section className={clsx(s.portfolio)} id="portfolio">
       <ScrollingText className={clsx(s.titleWrapper)}>
-        <h2 className={clsx(s.title)}>Portfolio</h2>
+        <h2 className={clsx(s.title)}>{data?.backTitle || 'Portfolio'}</h2>
       </ScrollingText>
 
       <div className={clsx(s.projects)}>
-        {mockData.map((project, index) => (
-          <ProjectCard key={index} {...project} />
+        {data?.projects?.map((project, index) => (
+          <ProjectCard buttonText={data?.buttonText} key={index} {...project} />
         ))}
       </div>
     </section>

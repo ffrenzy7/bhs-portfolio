@@ -1,18 +1,14 @@
-import { defineField, defineType, defineArrayMember } from 'sanity'
+import { defineField, defineType, ImageRule } from 'sanity'
 import { DocumentIcon } from '@sanity/icons'
 
 import { createSlug, formatSlug } from '@/sanity/lib/utils'
 import { imageField } from '@/sanity/lib/fields'
 import { PageType } from '@/sanity/types/enums'
-import bodyText from '@/sanity/schemas/components/bodyText'
-import type { ISanityBodyText } from '@/sanity/schemas/components/bodyText'
 import type { ISanityImage } from '@/sanity/types/image'
 import type { ISanityMetadata } from '@/sanity/schemas/objects/metadata'
 import type { ISanitySEO } from '@/sanity/schemas/objects/seo'
 
 import { PROJECT_SUB_DIRECTORY_NAME } from '@/constants'
-
-const components: { type: string }[] = [defineArrayMember({ type: bodyText.name })]
 
 export default defineType({
   name: PageType.Project,
@@ -77,7 +73,7 @@ export default defineType({
       description:
         'The cover image that will be displayed on Home page. Dimensions: 1366x768',
       group: 'main',
-      validation: (Rule) => Rule.required(),
+      validation: (Rule: ImageRule) => Rule.required(),
     }),
 
     defineField({
@@ -93,15 +89,6 @@ export default defineType({
       type: 'seo',
       description: 'Search Engine Optimization related features.',
       group: 'seo',
-    }),
-
-    defineField({
-      name: 'components',
-      title: 'Components',
-      type: 'array',
-      description: 'Content related components. These build the body of the page.',
-      group: 'components',
-      of: components,
     }),
   ],
   preview: {
@@ -127,12 +114,11 @@ export interface ISanityProjectPage {
 
   metadata: ISanityMetadata
   seo: ISanitySEO
-
-  components: [ISanityBodyText]
 }
 
 export interface ISanityProjectThumbnail {
   title: string
   slug: string
+  tags: string[]
   thumbnail: ISanityImage
 }

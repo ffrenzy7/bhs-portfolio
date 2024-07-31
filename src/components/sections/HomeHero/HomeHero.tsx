@@ -36,9 +36,9 @@ const HomeHero = ({ data, social }: IHomeHero) => {
       <div className={clsx(s.overlay)} ref={overlayRef} />
       <div>
         <h1 className={clsx(s.name)}>
-          {data.firstName}
+          {data.firstName || 'Bruno'}
           <br />
-          {data.lastName}
+          {data.lastName || 'Henrique'}
         </h1>
 
         <h2 className={clsx(s.role)}>

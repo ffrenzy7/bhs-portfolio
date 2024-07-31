@@ -37,8 +37,11 @@ export default defineType({
       name: 'logoText',
       title: 'Texto do logo',
       type: 'string',
-      description: 'O texto que será exibido no logo do menu em todas as páginas.',
+      description:
+        'O texto que será exibido no logo do menu em todas as páginas. Máximo: 20 caracteres.',
+      placeholder: 'BHS',
       group: 'main',
+      validation: (Rule) => Rule.max(20).warning('Deve ter até 20 caracteres'),
     }),
     defineField({
       name: 'menuText',
@@ -122,8 +125,8 @@ export interface ISanitySiteSettingsSocial {
 
 export interface ISanitySiteSettings {
   title: string
-  logoText: string
-  menuText: ISanityMenuText
+  logoText?: string
+  menuText?: ISanityMenuText
 
   social: ISanitySiteSettingsSocial
 

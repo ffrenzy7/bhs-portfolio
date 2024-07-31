@@ -1,0 +1,14 @@
+:export {
+  breakpoint-medium: 600px;
+  breakpoint-desktop: 900px;
+  breakpoint-large: 1400px;
+  color-white: #fff;
+  color-black: #000;
+  color-gray: #848484;
+  color-radical-red: #ff3366;
+  color-white-lilac: #f6f7fb;
+  color-woodsmoke: #171819;
+  color-shark: #1b1d22;
+  color-mine-shaft: #333;
+  base-width: 1920 px;
+}/*# sourceMappingURL=exports.module.css.map */

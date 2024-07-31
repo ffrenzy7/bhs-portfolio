@@ -5,9 +5,6 @@ import homePage from '@/sanity/schemas/singletons/homePage'
 // Documents
 import projectPage from '@/sanity/schemas/documents/projectPage'
 
-// Components
-import bodyText from '@/sanity/schemas/components/bodyText'
-
 // Objects
 import externalLink from '@/sanity/schemas/objects/externalLink'
 import externalLinkWithLabel from '@/sanity/schemas/objects/externalLinkWithLabel'
@@ -20,6 +17,7 @@ import metadata from '@/sanity/schemas/objects/metadata'
 import richText from '@/sanity/schemas/objects/richText'
 import seo from '@/sanity/schemas/objects/seo'
 import menuText from '@/sanity/schemas/objects/menuText'
+import portfolio from '@/sanity/schemas/objects/portfolio'
 
 const schemas = [
   // Singletons
@@ -28,9 +26,6 @@ const schemas = [
 
   // Documents
   projectPage,
-
-  // Components
-  bodyText,
 
   // Objects
   externalLink,
@@ -44,6 +39,7 @@ const schemas = [
   richText,
   seo,
   menuText,
+  portfolio,
 ]
 
 export default schemas

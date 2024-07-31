@@ -5,6 +5,7 @@ import { formatSlug } from '@/sanity/lib/utils'
 import { PageType } from '@/sanity/types/enums'
 import type { ISanityMetadata } from '@/sanity/schemas/objects/metadata'
 import type { ISanitySEO } from '@/sanity/schemas/objects/seo'
+import { ISanityPortfolio } from '@/sanity/schemas/objects/portfolio'
 
 export default defineType({
   name: PageType.Home,
@@ -19,6 +20,10 @@ export default defineType({
     {
       name: 'hero',
       title: 'Banner Home',
+    },
+    {
+      name: 'portfolio',
+      title: 'Sessão Portfolio',
     },
     {
       name: 'metadata',
@@ -58,26 +63,28 @@ export default defineType({
         defineField({
           name: 'firstName',
           title: 'Nome',
+          placeholder: 'Padrão: Bruno',
           type: 'string',
-          validation: (Rule) => Rule.required(),
         }),
         defineField({
           name: 'lastName',
           title: 'Sobrenome',
+          placeholder: 'Padrão: Henrique',
           type: 'string',
-          validation: (Rule) => Rule.required(),
         }),
         defineField({
           name: 'roles',
           title: 'Cargos',
+          description: 'Máximo: 3 cargos.',
           type: 'array',
           validation: (Rule) => Rule.required().min(1).max(3),
           of: [
             defineField({
               name: 'role',
               title: 'Cargo',
+              description: 'Máximo: 25 caracteres.',
               type: 'string',
-              validation: (Rule) => Rule.required().min(1).max(50),
+              validation: (Rule) => Rule.required().min(1).max(25),
             }),
           ],
         }),
@@ -85,9 +92,15 @@ export default defineType({
           name: 'scrollDown',
           title: 'Texto do botão de rolagem',
           type: 'string',
-          placeholder: 'Desça para mais',
+          placeholder: 'Padrão: Desça para mais',
         }),
       ],
+    }),
+    defineField({
+      name: 'portfolio',
+      title: 'Sessão Portfolio',
+      type: 'portfolio',
+      group: 'portfolio',
     }),
     defineField({
       name: 'metadata',
@@ -119,10 +132,10 @@ export default defineType({
 })
 
 export interface ISanityHomePageHomeHero {
-  firstName: string
-  lastName: string
+  firstName?: string
+  lastName?: string
   roles: string[]
-  scrollDown: string
+  scrollDown?: string
 }
 
 export interface ISanityHomePage {
@@ -133,6 +146,7 @@ export interface ISanityHomePage {
   slug: string
 
   homeHero: ISanityHomePageHomeHero
+  portfolio: ISanityPortfolio
 
   metadata: ISanityMetadata
   seo: ISanitySEO

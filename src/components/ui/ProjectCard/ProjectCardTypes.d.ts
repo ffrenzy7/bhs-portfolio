@@ -1,6 +1,5 @@
-export interface IProjectCard {
-  title: string
-  tags: string[]
-  image: string
-  url: string
+import { ISanityProjectThumbnail } from '@/sanity/schemas/documents/projectPage'
+
+export interface IProjectCard extends ISanityProjectThumbnail {
+  buttonText?: string
 }

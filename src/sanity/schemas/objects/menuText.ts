@@ -10,21 +10,24 @@ export default defineType({
     defineField({
       name: 'home',
       title: 'Texto Home do Menu',
-      placeholder: 'Home',
+      description: 'Máximo: 10 caracteres.',
+      placeholder: 'Padrão: Home',
       type: 'string',
       validation: (Rule) => Rule.max(10).warning('Deve ter até 10 caracteres'),
     }),
     defineField({
       name: 'portfolio',
       title: 'Texto Portfolio do Menu',
-      placeholder: 'Portfolio',
+      description: 'Máximo: 10 caracteres.',
+      placeholder: 'Padrão: Portfolio',
       type: 'string',
       validation: (Rule) => Rule.max(10).warning('Deve ter até 10 caracteres'),
     }),
     defineField({
       name: 'about',
       title: 'Texto Sobre Mim do Menu',
-      placeholder: 'Sobre Mim',
+      description: 'Máximo: 10 caracteres.',
+      placeholder: 'Padrão: Sobre Mim',
       type: 'string',
       validation: (Rule) => Rule.max(10).warning('Deve ter até 10 caracteres'),
     }),
@@ -32,7 +35,7 @@ export default defineType({
 })
 
 export interface ISanityMenuText {
-  home: string
-  portfolio: string
-  about: string
+  home?: string
+  portfolio?: string
+  about?: string
 }

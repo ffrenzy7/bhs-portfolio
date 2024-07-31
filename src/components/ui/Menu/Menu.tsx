@@ -29,7 +29,7 @@ const Menu = ({ logoText, menuText }: IMenu) => {
     <header className={clsx(s.header)}>
       <Link className={clsx(s.logo)} href="/">
         <span className={clsx(s.slash)}>/</span>
-        {logoText}
+        {logoText || 'BHS'}
       </Link>
 
       <button

@@ -2,11 +2,13 @@ import { useRef, MouseEvent } from 'react'
 import Link from 'next/link'
 import clsx from 'clsx'
 
+import NextImage from '@/components/core/NextImage'
+
 import { IProjectCard } from './ProjectCardTypes'
 
 import s from './ProjectCard.module.scss'
 
-const ProjectCard = ({ title, tags, image, url }: IProjectCard) => {
+const ProjectCard = ({ title, tags, thumbnail, slug, buttonText }: IProjectCard) => {
   const cardRef = useRef<HTMLAnchorElement>(null)
   const cardRect = useRef<DOMRect>()
 
@@ -52,14 +54,18 @@ const ProjectCard = ({ title, tags, image, url }: IProjectCard) => {
     <div className={clsx(s.cardWrapper)}>
       <Link
         className={clsx(s.card)}
-        href={url}
+        href={slug}
         onMouseEnter={onMouseEnter}
         onMouseMove={onMouseMove}
         onMouseLeave={onMouseLeave}
         ref={cardRef}
       >
         <div className={clsx(s.imageWrapper)}>
-          <img className={clsx(s.image)} src={image} />
+          <NextImage
+            image={thumbnail}
+            alt={thumbnail?.alt || 'Project thumbnail'}
+            className={clsx(s.image)}
+          />
         </div>
 
         <div className={clsx(s.content)}>
@@ -67,7 +73,7 @@ const ProjectCard = ({ title, tags, image, url }: IProjectCard) => {
 
           <div className={clsx(s.tags)}>
             <span className={clsx(s.dash)}>- </span>
-            {tags.map((tag, index) => (
+            {tags?.map((tag, index) => (
               <span key={index} className={clsx(s.tag)}>
                 <span className={clsx(s.tagText)}>{tag}</span>
                 {index < tags.length - 1 ? ', ' : ''}
@@ -84,7 +90,7 @@ const ProjectCard = ({ title, tags, image, url }: IProjectCard) => {
             <div className={clsx(s.border, s.right)}></div>
             <div className={clsx(s.border, s.top)}></div>
             <div className={clsx(s.border, s.leftTop)}></div>
-            Explorar
+            {buttonText || 'Explorar'}
           </button>
         </div>
       </Link>

@@ -9,6 +9,7 @@ const portfolioQuery = groq`
     projects[]->{
       title,
       "slug": slug.current,
+      tags[],
       ${imageQuery('thumbnail')},
     },
   }

@@ -7,8 +7,6 @@ import { IMenu } from './MenuTypes'
 import s from './Menu.module.scss'
 
 const Menu = ({ logoText, menuText }: IMenu) => {
-  console.log(menuText)
-
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const scrollToSection = (event: MouseEvent<HTMLAnchorElement>) => {

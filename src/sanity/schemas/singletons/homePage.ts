@@ -6,6 +6,7 @@ import { PageType } from '@/sanity/types/enums'
 import type { ISanityMetadata } from '@/sanity/schemas/objects/metadata'
 import type { ISanitySEO } from '@/sanity/schemas/objects/seo'
 import { ISanityPortfolio } from '@/sanity/schemas/objects/portfolio'
+import { ISanityAbout } from '@/sanity/schemas/objects/about'
 
 export default defineType({
   name: PageType.Home,
@@ -23,7 +24,11 @@ export default defineType({
     },
     {
       name: 'portfolio',
-      title: 'Sessão Portfolio',
+      title: 'Portfolio',
+    },
+    {
+      name: 'about',
+      title: 'Sobre Mim',
     },
     {
       name: 'metadata',
@@ -98,9 +103,15 @@ export default defineType({
     }),
     defineField({
       name: 'portfolio',
-      title: 'Sessão Portfolio',
+      title: 'Portfolio',
       type: 'portfolio',
       group: 'portfolio',
+    }),
+    defineField({
+      name: 'about',
+      title: 'Sobre Mim',
+      type: 'about',
+      group: 'about',
     }),
     defineField({
       name: 'metadata',
@@ -147,6 +158,7 @@ export interface ISanityHomePage {
 
   homeHero: ISanityHomePageHomeHero
   portfolio: ISanityPortfolio
+  about: ISanityAbout
 
   metadata: ISanityMetadata
   seo: ISanitySEO

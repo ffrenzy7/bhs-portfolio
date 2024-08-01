@@ -7,13 +7,11 @@ import type { IHomePage } from './HomePageTypes'
 const HomePage = ({ data, social }: IHomePage) => {
   if (!data) return null
 
-  console.log(data)
-
   return (
     <>
       <HomeHero data={data.homeHero} social={social} />
       <Portfolio data={data.portfolio} />
-      <About />
+      <About data={data.about} />
     </>
   )
 }

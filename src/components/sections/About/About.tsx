@@ -2,17 +2,21 @@ import clsx from 'clsx'
 
 import s from './About.module.scss'
 import ScrollingText from '@/components/ui/ScrollingText'
+import type { IAbout } from '@/components/sections/About/AboutTypes'
 
-const About = () => {
+const About = ({ data }: IAbout) => {
+  console.log(data)
+
   return (
     <section className={clsx(s.about)} id="about">
       <ScrollingText className={clsx(s.backTitleWrapper)}>
-        <span className={clsx(s.backTitle)}>Sobre Mim</span>
+        <span className={clsx(s.backTitle)}>{data?.backTitle || 'Sobre Mim'}</span>
       </ScrollingText>
 
       <div className={clsx(s.content)}>
         <h2 className={clsx(s.title)}>
-          Sobre Mim<span className={clsx(s.underscore)}>_</span>
+          {data?.title || 'Sobre Mim'}
+          <span className={clsx(s.underscore)}>_</span>
         </h2>
 
         <p className={clsx(s.description)}>

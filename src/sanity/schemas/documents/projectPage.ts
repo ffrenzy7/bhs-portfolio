@@ -1,4 +1,4 @@
-import { defineField, defineType, ImageRule } from 'sanity'
+import { defineArrayMember, defineField, defineType, ImageRule } from 'sanity'
 import { DocumentIcon } from '@sanity/icons'
 
 import { createSlug, formatSlug } from '@/sanity/lib/utils'
@@ -12,50 +12,46 @@ import { PROJECT_SUB_DIRECTORY_NAME } from '@/constants'
 
 export default defineType({
   name: PageType.Project,
-  title: 'Project',
+  title: 'Projeto',
   type: 'document',
   icon: DocumentIcon,
   groups: [
     {
       name: 'main',
-      title: 'Main',
+      title: 'Principal',
     },
     {
       name: 'metadata',
-      title: 'Metadata',
+      title: 'Metadados',
     },
     {
       name: 'seo',
       title: 'SEO',
     },
-    {
-      name: 'components',
-      title: 'Components',
-    },
   ],
   fields: [
     defineField({
       name: 'title',
-      title: 'Title',
+      title: 'Título',
       type: 'string',
-      description: 'The title of the project.',
+      description: 'Título do projeto. Máximo 30 caracteres.',
       group: 'main',
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required().max(30),
     }),
     defineField({
       name: 'slug',
-      title: 'Slug',
+      title: 'URL',
       type: 'slug',
-      description: `The slug should have the format: ${PROJECT_SUB_DIRECTORY_NAME}/uid. Click the "Generate" button to automate this.`,
+      description: `A URL deve estar no formato: ${PROJECT_SUB_DIRECTORY_NAME}/nome-do-projeto. Clique no botão "Generate" para gerar automaticamente.`,
       group: 'main',
-      placeholder: `${PROJECT_SUB_DIRECTORY_NAME}/uid`,
+      placeholder: `${PROJECT_SUB_DIRECTORY_NAME}/nome-do-projeto`,
       validation: (Rule) =>
         Rule.required().custom((slug) => {
           const current = slug?.current
           if (current === PROJECT_SUB_DIRECTORY_NAME)
-            return `Slug must follow ${PROJECT_SUB_DIRECTORY_NAME}/uid pattern`
+            return `URL deve seguir o padrão ${PROJECT_SUB_DIRECTORY_NAME}/nome-do-projeto`
           else if (!current?.startsWith(PROJECT_SUB_DIRECTORY_NAME)) {
-            return `Slug must start with "${PROJECT_SUB_DIRECTORY_NAME}/"`
+            return `URL deve começar com "${PROJECT_SUB_DIRECTORY_NAME}/"`
           }
           return true
         }),
@@ -66,28 +62,44 @@ export default defineType({
           `${PROJECT_SUB_DIRECTORY_NAME}/${input ? createSlug(input) : 'uid'}`,
       },
     }),
+    defineField({
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      description: 'As tags do projeto. Máximo 3.',
+      group: 'main',
+      validation: (Rule) => Rule.required().min(1).max(3),
+      of: [
+        defineArrayMember({
+          name: 'tag',
+          title: 'Tag',
+          type: 'string',
+          validation: (Rule) => Rule.required().min(1).max(20),
+        }),
+      ],
+    }),
     imageField({
       name: 'thumbnail',
-      title: 'Thumbnail',
+      title: 'Imagem de Capa',
       type: 'image',
       description:
-        'The cover image that will be displayed on Home page. Dimensions: 1366x768',
+        'A imagem de capa do projeto que vai ser exibida na Home. Dimensões: 440x564.',
       group: 'main',
       validation: (Rule: ImageRule) => Rule.required(),
     }),
 
     defineField({
       name: 'metadata',
-      title: 'Metadata',
+      title: 'Metadados',
       type: 'metadata',
-      description: 'Make sure to fill in the metadata for social sharing.',
+      description: 'Preencha os metadados para fins de compartilhamento.',
       group: 'metadata',
     }),
     defineField({
       name: 'seo',
       title: 'SEO',
       type: 'seo',
-      description: 'Search Engine Optimization related features.',
+      description: 'Search Engine Optimization (Otimização de busca).',
       group: 'seo',
     }),
   ],

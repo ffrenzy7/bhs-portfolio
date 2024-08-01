@@ -1,13 +1,11 @@
 import { defineArrayMember, defineField } from 'sanity'
-import { BlockContentIcon } from '@sanity/icons'
 import { PageType } from '@/sanity/types/enums'
 import { ISanityProjectThumbnail } from '@/sanity/schemas/documents/projectPage'
 
 export default defineField({
   name: 'portfolio',
-  title: 'Sessão Portfolio',
+  title: 'Portfolio',
   type: 'object',
-  icon: BlockContentIcon,
   fields: [
     defineField({
       name: 'backTitle',

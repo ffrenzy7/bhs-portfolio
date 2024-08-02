@@ -27,7 +27,7 @@ const Social = ({ data, type = 'hero' }: ISocial) => {
       )}
 
       {data?.mail && (
-        <a href={data?.mail} target="_blank" className={clsx(s.link)}>
+        <a href={`mailto:${data?.mail}`} target="_blank" className={clsx(s.link)}>
           <div className={clsx(s.wrapper)}>
             <FaEnvelope className={clsx(s.icon)} />
             <FaEnvelope className={clsx(s.icon, s.last)} />
@@ -36,7 +36,11 @@ const Social = ({ data, type = 'hero' }: ISocial) => {
       )}
 
       {data?.whatsapp && (
-        <a href={data?.whatsapp} target="_blank" className={clsx(s.link)}>
+        <a
+          href={`https://wa.me/${data?.whatsapp}`}
+          target="_blank"
+          className={clsx(s.link)}
+        >
           <div className={clsx(s.wrapper)}>
             <FaWhatsapp className={clsx(s.icon)} />
             <FaWhatsapp className={clsx(s.icon, s.last)} />

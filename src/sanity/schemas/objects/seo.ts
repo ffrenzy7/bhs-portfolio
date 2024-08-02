@@ -23,28 +23,10 @@ export default defineType({
         'Whether this page should be visible in a sitemap file that will be provided to search engines.',
       initialValue: true,
     }),
-    defineField({
-      name: 'hasCanonicalLink',
-      title: 'Add a canonical link?',
-      type: 'boolean',
-      description:
-        'Canonical links are used for duplicated content. It helps telling Google which page should be the indexed one.',
-      initialValue: false,
-    }),
-    defineField({
-      name: 'canonicalLink',
-      type: 'flexiLink',
-      hidden: ({ parent, value }) => !parent?.hasCanonicalLink,
-    }),
   ],
 })
 
 export interface ISanitySEO {
   isIndexable: boolean
   isVisibleInSitemap: boolean
-  hasCanonicalLink: boolean
-  canonicalLink: {
-    type: string
-    url: string
-  }
 }

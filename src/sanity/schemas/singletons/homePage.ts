@@ -1,12 +1,12 @@
-import { defineField, defineType, defineArrayMember } from 'sanity'
+import { defineField, defineType } from 'sanity'
 import { PresentationIcon } from '@sanity/icons'
 
 import { formatSlug } from '@/sanity/lib/utils'
 import { PageType } from '@/sanity/types/enums'
 import type { ISanityMetadata } from '@/sanity/schemas/objects/metadata'
 import type { ISanitySEO } from '@/sanity/schemas/objects/seo'
-import { ISanityPortfolio } from '@/sanity/schemas/objects/portfolio'
-import { ISanityAbout } from '@/sanity/schemas/objects/about'
+import type { ISanityPortfolio } from '@/sanity/schemas/objects/portfolio'
+import type { ISanityAbout } from '@/sanity/schemas/objects/about'
 
 export default defineType({
   name: PageType.Home,
@@ -68,36 +68,31 @@ export default defineType({
         defineField({
           name: 'firstName',
           title: 'Nome',
+          description: 'O nome que será exibido na Home.',
           placeholder: 'Padrão: Bruno',
           type: 'string',
         }),
         defineField({
           name: 'lastName',
           title: 'Sobrenome',
+          description: 'O sobrenome que será exibido na Home.',
           placeholder: 'Padrão: Henrique',
           type: 'string',
         }),
         defineField({
           name: 'roles',
-          title: 'Cargos',
-          description: 'Máximo: 3 cargos.',
+          title: 'Especializações',
+          description: 'Máximo: 3 especializações.',
           type: 'array',
           validation: (Rule) => Rule.required().min(1).max(3),
           of: [
             defineField({
               name: 'role',
-              title: 'Cargo',
-              description: 'Máximo: 25 caracteres.',
+              title: 'Especialização',
               type: 'string',
-              validation: (Rule) => Rule.required().min(1).max(25),
+              validation: (Rule) => Rule.required(),
             }),
           ],
-        }),
-        defineField({
-          name: 'scrollDown',
-          title: 'Texto do botão de rolagem',
-          type: 'string',
-          placeholder: 'Padrão: Desça para mais',
         }),
       ],
     }),
@@ -146,7 +141,6 @@ export interface ISanityHomePageHomeHero {
   firstName?: string
   lastName?: string
   roles: string[]
-  scrollDown?: string
 }
 
 export interface ISanityHomePage {
@@ -160,6 +154,6 @@ export interface ISanityHomePage {
   portfolio: ISanityPortfolio
   about: ISanityAbout
 
-  metadata: ISanityMetadata
-  seo: ISanitySEO
+  metadata?: ISanityMetadata
+  seo?: ISanitySEO
 }

@@ -1,6 +1,5 @@
-import { ISanityMenuText } from '@/sanity/schemas/objects/menuText'
+import { ISanityMenu } from '@/sanity/schemas/objects/menu'
 
 export interface IMenu {
-  logoText: string
-  menuText: ISanityMenuText
+  menu: ISanityMenu
 }

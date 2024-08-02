@@ -1,11 +1,12 @@
 import { groq } from 'next-sanity'
 
-const menuTextQuery = groq`
-  menuText {
+const menuQuery = groq`
+  menu {
+    logoText,
     home,
     portfolio,
     about,
   }
 `
 
-export default menuTextQuery
+export default menuQuery

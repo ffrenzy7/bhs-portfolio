@@ -167,9 +167,12 @@
   font-size: rem(40);
   font-weight: 600;
   pointer-events: none;
+  padding: 0 rem($globalPaddingMobile);
+  text-align: center;
 
   @include above('desktop') {
     font-size: vw(40);
+    padding: 0 vw($globalPaddingDesktop);
   }
 
   &::before {

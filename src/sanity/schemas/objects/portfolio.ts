@@ -10,10 +10,8 @@ export default defineField({
     defineField({
       name: 'backTitle',
       title: 'Título que fica atrás da sessão',
-      description: 'Máximo: 10 caracteres.',
       placeholder: 'Padrão: Portfolio',
       type: 'string',
-      validation: (Rule) => Rule.max(10).warning('Deve ter até 10 caracteres'),
     }),
     defineField({
       name: 'buttonText',

@@ -55,7 +55,7 @@ const HomeHero = ({ data, social }: IHomeHero) => {
 
       <Social data={social} />
 
-      <ScrollDown buttonText={data?.scrollDown} id="portfolio" />
+      <ScrollDown id="portfolio" />
     </main>
   )
 }

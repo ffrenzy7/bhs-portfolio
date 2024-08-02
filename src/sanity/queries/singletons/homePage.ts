@@ -14,7 +14,6 @@ const homePageQuery = groq`
       firstName,
       lastName,
       roles[],
-      scrollDown,
     },
     ${portfolioQuery},
     ${aboutQuery},

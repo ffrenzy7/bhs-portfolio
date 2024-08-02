@@ -38,8 +38,9 @@
 
 .content {
   position: absolute;
-  top: 30%;
+  top: 50%;
   left: -10%;
+  transform: translateY(-50%);
 
   @include above('desktop') {
     left: -20%;
@@ -165,6 +166,7 @@
   text-transform: uppercase;
   font-size: rem(12);
   position: relative;
+  white-space: nowrap;
 
   @include isHoverable {
     @include transition;

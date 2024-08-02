@@ -4,10 +4,6 @@ const SEOQuery = groq`
   seo {
     isIndexable,
     isVisibleInSitemap,
-    hasCanonicalLink,
-    canonicalLink {
-      ...
-    },
   }
 `
 

@@ -2,7 +2,7 @@ import { defineField, defineType } from 'sanity'
 import { CogIcon } from '@sanity/icons'
 
 import { PageType } from '@/sanity/types/enums'
-import type { ISanityMenuText } from '@/sanity/schemas/objects/menuText'
+import type { ISanityMenu } from '@/sanity/schemas/objects/menu'
 import type { ISanityMetadata } from '@/sanity/schemas/objects/metadata'
 
 export default defineType({
@@ -34,20 +34,9 @@ export default defineType({
       group: 'main',
     }),
     defineField({
-      name: 'logoText',
-      title: 'Texto do logo',
-      type: 'string',
-      description:
-        'O texto que será exibido no logo do menu em todas as páginas. Máximo: 20 caracteres.',
-      placeholder: 'BHS',
-      group: 'main',
-      validation: (Rule) => Rule.max(20).warning('Deve ter até 20 caracteres'),
-    }),
-    defineField({
-      name: 'menuText',
-      title: 'Textos do menu',
-      type: 'menuText',
-      description: 'O texto que será exibido nos links do Menu.',
+      name: 'menu',
+      title: 'Menu Principal',
+      type: 'menu',
       group: 'main',
     }),
     defineField({
@@ -69,27 +58,21 @@ export default defineType({
         defineField({
           name: 'mail',
           title: 'E-mail',
-          description:
-            'Insira mailto: antes do endereço de e-mail. Exemplo: mailto:meu@email.com',
-          type: 'url',
-          validation: (Rule) =>
-            Rule.uri({
-              allowRelative: true,
-              scheme: ['mailto'],
-            }),
+          type: 'email',
         }),
         defineField({
           name: 'whatsapp',
           title: 'WhatsApp',
           description:
-            'Insira no formato https://wa.me/<CodigoDoPais><DDD><Numero> sem parênteses ou traços. Exemplo: https://wa.me/5511912345678',
-          type: 'url',
+            'Insira no formato <CodigoDoPais><DDD><Numero> sem parênteses, traços ou o sinal de +. Somente número. Exemplo: 5511912345678',
+          type: 'string',
+          validation: (Rule) => Rule.regex(/^\d{1,4}\d{1,12}$/),
         }),
       ],
     }),
     defineField({
       name: 'titlePrefix',
-      title: 'Prefixo do título',
+      title: 'Prefixo de todas as páginas',
       type: 'string',
       description:
         'O texto que será exibido antes do título da página e será aplicado em todas as páginas.',
@@ -125,11 +108,10 @@ export interface ISanitySiteSettingsSocial {
 
 export interface ISanitySiteSettings {
   title: string
-  logoText?: string
-  menuText?: ISanityMenuText
+  menu?: ISanityMenu
 
   social: ISanitySiteSettingsSocial
 
   titlePrefix: string
-  metadata: ISanityMetadata
+  metadata?: ISanityMetadata
 }

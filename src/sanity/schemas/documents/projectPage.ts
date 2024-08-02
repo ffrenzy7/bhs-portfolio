@@ -32,11 +32,9 @@ export default defineType({
   fields: [
     defineField({
       name: 'title',
-      title: 'Título',
+      title: 'Título do Projeto',
       type: 'string',
-      description: 'Título do projeto. Máximo 30 caracteres.',
       group: 'main',
-      validation: (Rule) => Rule.required().max(30),
     }),
     defineField({
       name: 'slug',
@@ -64,17 +62,17 @@ export default defineType({
     }),
     defineField({
       name: 'tags',
-      title: 'Tags',
+      title: 'Palavras-chave',
       type: 'array',
-      description: 'As tags do projeto. Máximo 3.',
+      description:
+        'As palavras-chave do projeto. Somente para referência visual, não contém link. Máximo 2.',
       group: 'main',
-      validation: (Rule) => Rule.required().min(1).max(3),
+      validation: (Rule) => Rule.required().min(1).max(2),
       of: [
         defineArrayMember({
           name: 'tag',
           title: 'Tag',
           type: 'string',
-          validation: (Rule) => Rule.required().min(1).max(20),
         }),
       ],
     }),
@@ -83,7 +81,7 @@ export default defineType({
       title: 'Imagem de Capa',
       type: 'image',
       description:
-        'A imagem de capa do projeto que vai ser exibida na Home. Dimensões: 440x564.',
+        'A imagem de capa do projeto que vai ser exibida na Home. Dimensões recomendadas: 440x564.',
       group: 'main',
       validation: (Rule: ImageRule) => Rule.required(),
     }),
@@ -124,8 +122,8 @@ export interface ISanityProjectPage {
   title: string
   slug: string
 
-  metadata: ISanityMetadata
-  seo: ISanitySEO
+  metadata?: ISanityMetadata
+  seo?: ISanitySEO
 }
 
 export interface ISanityProjectThumbnail {

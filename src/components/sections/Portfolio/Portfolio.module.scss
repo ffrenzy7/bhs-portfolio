@@ -31,6 +31,7 @@
   letter-spacing: rem(3);
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
   user-select: none;
+  white-space: nowrap;
 
   @include above('desktop') {
     font-size: vw(220);

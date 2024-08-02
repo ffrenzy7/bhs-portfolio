@@ -36,7 +36,7 @@ export default defineType({
 })
 
 export interface ISanityMetadata {
-  title: string
-  description: string
-  image: ISanityImage
+  title?: string
+  description?: string
+  image?: ISanityImage
 }

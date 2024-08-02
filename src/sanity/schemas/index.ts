@@ -16,7 +16,7 @@ import internalLinkWithLabel from '@/sanity/schemas/objects/internalLinkWithLabe
 import metadata from '@/sanity/schemas/objects/metadata'
 import richText from '@/sanity/schemas/objects/richText'
 import seo from '@/sanity/schemas/objects/seo'
-import menuText from '@/sanity/schemas/objects/menuText'
+import menu from '@/sanity/schemas/objects/menu'
 import portfolio from '@/sanity/schemas/objects/portfolio'
 import about from '@/sanity/schemas/objects/about'
 
@@ -39,7 +39,7 @@ const schemas = [
   metadata,
   richText,
   seo,
-  menuText,
+  menu,
   portfolio,
   about,
 ]

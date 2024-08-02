@@ -6,7 +6,7 @@ import { IScrollDown } from './ScrollDownTypes'
 
 import s from './ScrollDown.module.scss'
 
-const ScrollDown = ({ buttonText, id }: IScrollDown) => {
+const ScrollDown = ({ id }: IScrollDown) => {
   const scrollToSection = (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault()
 
@@ -20,7 +20,7 @@ const ScrollDown = ({ buttonText, id }: IScrollDown) => {
   return (
     <Link href={`#${id}`} className={clsx(s.scrollDown)} onClick={scrollToSection}>
       <div className={clsx(s.line)}></div>
-      {buttonText || 'Desça para mais'}
+      Desça para mais
     </Link>
   )
 }

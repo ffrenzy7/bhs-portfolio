@@ -37,6 +37,7 @@
   font-size: rem(70);
   font-weight: 700;
   line-height: 0.9;
+  word-break: break-word;
 
   @include above('desktop') {
     font-size: vw(180);
@@ -48,6 +49,7 @@
   text-transform: uppercase;
   margin-top: rem(30);
   letter-spacing: rem(2);
+  word-break: break-word;
 
   @include above('desktop') {
     font-size: vw(20);

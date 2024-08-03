@@ -1,9 +1,10 @@
 import clsx from 'clsx'
 
-import type { IFooter } from './FooterTypes'
-
-import s from './Footer.module.scss'
 import Social from '@/components/ui/Social'
+
+import type { IFooter } from '@/components/sections/Footer/FooterTypes'
+
+import s from '@/components/sections/Footer/Footer.module.scss'
 
 const Footer = ({ social }: IFooter) => {
   return (

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import { IoIosArrowUp } from 'react-icons/io'
 
-import s from './BackToTop.module.scss'
+import s from '@/components/ui/BackToTop/BackToTop.module.scss'
 
 const BackToTop = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)

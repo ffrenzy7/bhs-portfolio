@@ -1,8 +1,11 @@
 import clsx from 'clsx'
 
-import s from './About.module.scss'
 import ScrollingText from '@/components/ui/ScrollingText'
+import RichTextAbout from '@/components/ui/RichTextAbout'
+
 import type { IAbout } from '@/components/sections/About/AboutTypes'
+
+import s from '@/components/sections/About/About.module.scss'
 
 const About = ({ data }: IAbout) => {
   console.log(data)
@@ -19,7 +22,7 @@ const About = ({ data }: IAbout) => {
           <span className={clsx(s.underscore)}>_</span>
         </h2>
 
-        <p className={clsx(s.description)}>
+        {/* <p className={clsx(s.description)}>
           Lorem ipsum dolor sit amet{' '}
           <span className={clsx(s.highlight)}>
             <span className={clsx(s.highlightText)}>consectetur</span>
@@ -33,7 +36,12 @@ const About = ({ data }: IAbout) => {
             <span className={clsx(s.highlightText)}>amet</span>
           </span>
           , consectetur adipisicing elit.
-        </p>
+        </p> */}
+
+        <RichTextAbout
+          value={data?.richTextAbout?.body}
+          className={clsx(s.description)}
+        />
       </div>
     </section>
   )

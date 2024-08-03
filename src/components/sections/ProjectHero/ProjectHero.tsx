@@ -1,9 +1,9 @@
 import clsx from 'clsx'
-
-import { IProjectHero } from './ProjectHeroTypes'
-
-import s from './ProjectHero.module.scss'
 import Link from 'next/link'
+
+import type { IProjectHero } from '@/components/sections/ProjectHero/ProjectHeroTypes'
+
+import s from '@/components/sections/ProjectHero/ProjectHero.module.scss'
 
 const ProjectHero = ({ title }: IProjectHero) => {
   return (

@@ -4,8 +4,8 @@ import { BlockContentIcon } from '@sanity/icons'
 import type { PortableTextBlock } from '@portabletext/types'
 
 export default defineField({
-  name: 'richText',
-  title: 'Rich Text',
+  name: 'richTextAbout',
+  title: 'Rich Text About',
   type: 'object',
   icon: BlockContentIcon,
   fields: [
@@ -21,24 +21,30 @@ export default defineField({
           // correspond to HTML tags, but you can set a custom title and/or value
           // and decide how it will be formatted or displayed where your content is used.
           styles: [
-            { title: 'Normal', value: 'normal' },
-            { title: 'Title', value: 'h2' },
+            //   { title: 'Normal', value: 'normal' },
             // { title: 'Subtitle', value: 'h3' },
           ],
-          // lists: [
-          //   { title: 'Bullet', value: 'bullet' },
-          //   { title: 'Numbered', value: 'number' },
-          // ],
+          lists: [],
           // Marks let you mark up inline text in the block editor.
           marks: {
             // Decorators usually describe a single property – e.g. a typographic
             // preference or highlighting by editors.
-            decorators: [
-              { title: 'Strong', value: 'strong' },
-              { title: 'Emphasis', value: 'em' },
-            ],
+            decorators: [],
             // Annotations can be any object structure – e.g. a link or a footnote.
-            // annotations: [{ type: 'flexiLink' }],
+            annotations: [
+              {
+                name: 'highlight',
+                type: 'object',
+                title: 'Texto Supimpa',
+                fields: [
+                  {
+                    name: 'text',
+                    type: 'string',
+                    title: 'Text',
+                  },
+                ],
+              },
+            ],
           },
         },
       ],
@@ -46,8 +52,8 @@ export default defineField({
   ],
 })
 
-export interface ISanityRichText {
-  _type: 'richText'
+export interface ISanityRichTextAbout {
+  _type: 'richTextAbout'
   _key: string
 
   body: PortableTextBlock[]

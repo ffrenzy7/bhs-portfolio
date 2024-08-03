@@ -4,9 +4,9 @@ import { Fragment, useEffect, useRef } from 'react'
 import Social from '@/components/ui/Social'
 import ScrollDown from '@/components/ui/ScrollDown'
 
-import type { IHomeHero } from './HomeHeroTypes'
+import type { IHomeHero } from '@/components/sections/HomeHero/HomeHeroTypes'
 
-import s from './HomeHero.module.scss'
+import s from '@/components/sections/HomeHero/HomeHero.module.scss'
 
 const HomeHero = ({ data, social }: IHomeHero) => {
   const overlayRef = useRef<HTMLDivElement>(null)

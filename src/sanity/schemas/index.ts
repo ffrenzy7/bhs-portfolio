@@ -15,10 +15,12 @@ import internalLink from '@/sanity/schemas/objects/internalLink'
 import internalLinkWithLabel from '@/sanity/schemas/objects/internalLinkWithLabel'
 import metadata from '@/sanity/schemas/objects/metadata'
 import richText from '@/sanity/schemas/objects/richText'
+import richTextAbout from '@/sanity/schemas/objects/richTextAbout'
 import seo from '@/sanity/schemas/objects/seo'
 import menu from '@/sanity/schemas/objects/menu'
 import portfolio from '@/sanity/schemas/objects/portfolio'
 import about from '@/sanity/schemas/objects/about'
+import highlight from '@/sanity/schemas/objects/highlight'
 
 const schemas = [
   // Singletons
@@ -38,10 +40,12 @@ const schemas = [
   internalLinkWithLabel,
   metadata,
   richText,
+  richTextAbout,
   seo,
   menu,
   portfolio,
   about,
+  // highlight,
 ]
 
 export default schemas

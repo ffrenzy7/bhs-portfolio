@@ -2,9 +2,9 @@ import Link from 'next/link'
 import clsx from 'clsx'
 import { MouseEvent } from 'react'
 
-import { IScrollDown } from './ScrollDownTypes'
+import type { IScrollDown } from '@/components/ui/ScrollDown/ScrollDownTypes'
 
-import s from './ScrollDown.module.scss'
+import s from '@/components/ui/ScrollDown/ScrollDown.module.scss'
 
 const ScrollDown = ({ id }: IScrollDown) => {
   const scrollToSection = (event: MouseEvent<HTMLAnchorElement>) => {

@@ -1,0 +1,19 @@
+@import '@/styles/shared-imports.scss';
+
+.RichText {
+  .title:not(:first-child),
+  .paragraph:not(:first-child) {
+    @include max-prop(margin-top, rem(40), vw(50));
+  }
+
+  // ul {
+  //   list-style-type: square;
+  // }
+
+  // .link {
+  // }
+
+  .strong {
+    font-weight: 600;
+  }
+}

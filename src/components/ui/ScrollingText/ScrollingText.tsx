@@ -1,9 +1,9 @@
 import clsx from 'clsx'
 import { useEffect, useRef } from 'react'
 
-import { IScrollingText } from './ScrollingTextTypes'
+import type { IScrollingText } from '@/components/ui/ScrollingText/ScrollingTextTypes'
 
-import s from './ScrollingText.module.scss'
+import s from '@/components/ui/ScrollingText/ScrollingText.module.scss'
 
 const ScrollingText = ({ children, className }: IScrollingText) => {
   const elementRef = useRef<HTMLHeadingElement>(null)

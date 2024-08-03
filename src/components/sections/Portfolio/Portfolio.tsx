@@ -5,7 +5,7 @@ import ScrollingText from '@/components/ui/ScrollingText'
 
 import type { IPortfolio } from '@/components/sections/Portfolio/PortfolioTypes'
 
-import s from './Portfolio.module.scss'
+import s from '@/components/sections/Portfolio/Portfolio.module.scss'
 
 const mockData = [
   {

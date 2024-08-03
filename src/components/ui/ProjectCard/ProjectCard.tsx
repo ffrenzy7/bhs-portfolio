@@ -4,9 +4,9 @@ import clsx from 'clsx'
 
 import NextImage from '@/components/core/NextImage'
 
-import { IProjectCard } from './ProjectCardTypes'
+import type { IProjectCard } from '@/components/ui/ProjectCard/ProjectCardTypes'
 
-import s from './ProjectCard.module.scss'
+import s from '@/components/ui/ProjectCard/ProjectCard.module.scss'
 
 const ProjectCard = ({ title, tags, thumbnail, slug, buttonText }: IProjectCard) => {
   const cardRef = useRef<HTMLAnchorElement>(null)

@@ -1,0 +1,63 @@
+@import '@/styles/shared-imports.scss';
+
+.RichTextAbout {
+  // .paragraph:not(:first-child) {
+  //   @include max-prop(margin-top, rem(40), vw(50));
+  // }
+
+  .paragraph {
+    margin-top: rem(30);
+    font-size: rem(14);
+    line-height: 2;
+    font-weight: 500;
+
+    @include above('desktop') {
+      padding-left: vw(215);
+      margin-top: vw(64);
+      font-size: vw(35);
+    }
+  }
+
+  .highlight {
+    position: relative;
+
+    &::before {
+      @include position-fit;
+
+      content: '';
+      background: var(--color-radical-red);
+
+      @include isHoverable {
+        @include transition;
+
+        transition-property: transform;
+        transform: scaleY(0.1);
+        transform-origin: bottom;
+      }
+    }
+
+    @include isHoverable {
+      &:hover::before {
+        transform: scaleY(1);
+      }
+    }
+  }
+
+  .highlightText {
+    color: var(--color-white-lilac);
+    font-weight: 700;
+    z-index: z('above');
+    position: relative;
+
+    @include isHoverable {
+      @include transition;
+
+      color: var(--color-woodsmoke);
+      transition-property: color;
+
+      &:hover {
+        color: var(--color-white-lilac);
+      }
+    }
+  }
+}

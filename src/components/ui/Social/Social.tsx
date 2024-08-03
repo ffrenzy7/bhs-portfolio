@@ -1,9 +1,9 @@
 import clsx from 'clsx'
 import { FaLinkedinIn, FaBehance, FaEnvelope, FaWhatsapp } from 'react-icons/fa'
 
-import { ISocial } from './SocialTypes'
+import type { ISocial } from '@/components/ui/Social/SocialTypes'
 
-import s from './Social.module.scss'
+import s from '@/components/ui/Social/Social.module.scss'
 
 const Social = ({ data, type = 'hero' }: ISocial) => {
   return (

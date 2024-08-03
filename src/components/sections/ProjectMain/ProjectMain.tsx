@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 
-import s from './ProjectMain.module.scss'
+import s from '@/components/sections/ProjectMain/ProjectMain.module.scss'
 
 const ProjectMain = () => {
   return (

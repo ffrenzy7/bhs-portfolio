@@ -2,9 +2,9 @@ import { useState, MouseEvent } from 'react'
 import Link from 'next/link'
 import clsx from 'clsx'
 
-import { IMenu } from './MenuTypes'
+import type { IMenu } from '@/components/ui/Menu/MenuTypes'
 
-import s from './Menu.module.scss'
+import s from '@/components/ui/Menu/Menu.module.scss'
 
 const Menu = ({ menu }: IMenu) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)

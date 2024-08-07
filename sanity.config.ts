@@ -9,7 +9,7 @@ import { structure } from '@/sanity/structure'
 import schemas from '@/sanity/schemas'
 
 export default defineConfig({
-  basePath: '/studio',
+  basePath: '/admin',
   projectId,
   dataset,
 

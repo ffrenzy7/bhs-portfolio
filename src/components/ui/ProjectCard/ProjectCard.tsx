@@ -1,4 +1,4 @@
-import { useRef, MouseEvent } from 'react'
+import { useRef, MouseEvent, Fragment } from 'react'
 import Link from 'next/link'
 import clsx from 'clsx'
 
@@ -74,12 +74,10 @@ const ProjectCard = ({ title, tags, thumbnail, slug, buttonText }: IProjectCard)
           <div className={clsx(s.tags)}>
             <span className={clsx(s.dash)}>- </span>
             {tags?.map((tag, index) => (
-              <>
-                <span key={index} className={clsx(s.tag)}>
-                  {tag}
-                </span>
+              <Fragment key={index}>
+                <span className={clsx(s.tag)}>{tag}</span>
                 {index < tags.length - 1 ? ', ' : ''}
-              </>
+              </Fragment>
             ))}
           </div>
         </div>

@@ -2,6 +2,7 @@ import { defineField } from 'sanity'
 import { BlockContentIcon, ImageIcon, HighlightIcon } from '@sanity/icons'
 
 import type { PortableTextBlock } from '@portabletext/types'
+import { title } from 'process'
 
 export default defineField({
   name: 'richText',

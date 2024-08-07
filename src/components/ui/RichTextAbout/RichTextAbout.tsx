@@ -5,7 +5,6 @@ import { PortableText, PortableTextComponents } from '@portabletext/react'
 import type { IRichTextAbout } from './RichTextAboutTypes'
 
 import s from './RichTextAbout.module.scss'
-import highlight from '@/sanity/schemas/objects/highlight'
 
 const RichTextAbout = ({ value, className }: IRichTextAbout) => {
   const components: PortableTextComponents = useMemo(
@@ -20,12 +19,8 @@ const RichTextAbout = ({ value, className }: IRichTextAbout) => {
         },
       },
       marks: {
-        highlight: ({ children }: any) => {
-          return (
-            <span className={clsx(s.highlight)}>
-              <span className={clsx(s.highlightText)}>{children}</span>
-            </span>
-          )
+        strong: ({ children }: any) => {
+          return <strong className={clsx(s.highlight)}>{children}</strong>
         },
       },
     }),

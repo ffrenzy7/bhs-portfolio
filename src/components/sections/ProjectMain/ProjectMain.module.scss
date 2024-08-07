@@ -10,20 +10,3 @@
     padding: vw(120) vw($globalPaddingDesktop);
   }
 }
-
-.title {
-  font-size: rem(25);
-  font-weight: 700;
-
-  @include above('desktop') {
-    font-size: vw(35);
-  }
-}
-
-.content {
-  margin-top: rem(20);
-
-  @include above('desktop') {
-    margin-top: vw(40);
-  }
-}

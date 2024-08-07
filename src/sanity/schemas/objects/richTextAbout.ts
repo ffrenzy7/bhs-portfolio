@@ -1,5 +1,5 @@
 import { defineField } from 'sanity'
-import { BlockContentIcon } from '@sanity/icons'
+import { BlockContentIcon, HighlightIcon } from '@sanity/icons'
 
 import type { PortableTextBlock } from '@portabletext/types'
 
@@ -12,7 +12,7 @@ export default defineField({
     {
       name: 'body',
       type: 'array',
-      title: 'Body',
+      title: 'Conteúdo',
       of: [
         {
           type: 'block',
@@ -29,22 +29,10 @@ export default defineField({
           marks: {
             // Decorators usually describe a single property – e.g. a typographic
             // preference or highlighting by editors.
-            decorators: [],
+            decorators: [{ title: 'Supimpa', value: 'strong', icon: HighlightIcon }],
+
             // Annotations can be any object structure – e.g. a link or a footnote.
-            annotations: [
-              {
-                name: 'highlight',
-                type: 'object',
-                title: 'Texto Supimpa',
-                fields: [
-                  {
-                    name: 'text',
-                    type: 'string',
-                    title: 'Text',
-                  },
-                ],
-              },
-            ],
+            annotations: [],
           },
         },
       ],

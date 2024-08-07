@@ -1,19 +1,93 @@
 @import '@/styles/shared-imports.scss';
 
 .RichText {
-  .title:not(:first-child),
-  .paragraph:not(:first-child) {
-    @include max-prop(margin-top, rem(40), vw(50));
+  .paragraph {
+    margin-top: rem(20);
+
+    @include above('desktop') {
+      margin-top: vw(40);
+    }
   }
 
-  // ul {
-  //   list-style-type: square;
-  // }
+  .title {
+    font-size: rem(25);
+    font-weight: 700;
 
-  // .link {
-  // }
+    @include above('desktop') {
+      font-size: vw(35);
+    }
+  }
 
-  .strong {
+  .underscore {
+    color: var(--color-radical-red);
+  }
+
+  .imageWrapper {
+    margin: rem(20) auto 0;
+    overflow: hidden;
+    max-height: 77dvh;
+    box-shadow: rem(-5) rem(5) var(--color-radical-red);
+
+    @include above('desktop') {
+      margin: vw(40) auto 0;
+      box-shadow: vw(-10) vw(10) var(--color-radical-red);
+    }
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @include isHoverable {
+      @include transition;
+      transition-property: transform;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .link {
     font-weight: 600;
+    color: cornflowerblue;
+    text-decoration: underline;
+
+    &:visited {
+      color: blueviolet;
+    }
+
+    @include isHoverable {
+      @include transition;
+      transition-property: color;
+
+      &:hover {
+        color: var(--color-radical-red);
+      }
+    }
+  }
+
+  .highlight {
+    color: var(--color-white-lilac);
+    font-weight: 700;
+    width: calc(100%);
+    background-image: linear-gradient(transparent 0, var(--color-radical-red) 0);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: bottom;
+
+    @include isHoverable {
+      @include transition;
+
+      color: var(--color-woodsmoke);
+      transition-property: color, background-size;
+      background-size: 100% 10%;
+
+      &:hover {
+        color: var(--color-white-lilac);
+        background-size: 100% 100%;
+      }
+    }
   }
 }

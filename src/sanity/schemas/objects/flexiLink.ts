@@ -16,23 +16,23 @@ export default defineType({
   fields: [
     defineField({
       name: 'type',
-      title: 'Type',
+      title: 'Tipo',
       type: 'string',
       options: {
         layout: 'radio',
         direction: 'horizontal',
         list: [
-          { title: 'Internal', value: 'internal' },
-          { title: 'External', value: 'external' },
+          { title: 'Interno', value: 'internal' },
+          { title: 'Externo', value: 'external' },
         ],
       },
       initialValue: 'internal',
     }),
     defineField({
       name: 'internalLink',
-      title: 'Internal link',
+      title: 'Link Interno',
       type: 'internalLink',
-      description: 'URL to an internal page',
+      description: 'URL para uma página interna.',
       hidden: ({ parent }) => {
         if (parent?.type !== 'internal') return true
         return false
@@ -40,9 +40,9 @@ export default defineType({
     }),
     defineField({
       name: 'externalLink',
-      title: 'External link',
+      title: 'Link Externo',
       type: 'externalLink',
-      description: 'URL to an external link',
+      description: 'URL para uma página externa.',
       hidden: ({ parent }) => {
         if (parent?.type !== 'external') return true
         return false

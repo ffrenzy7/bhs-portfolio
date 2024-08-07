@@ -3,7 +3,7 @@ import { DocumentsIcon } from '@sanity/icons'
 
 import projectPage from '@/sanity/schemas/documents/projectPage'
 
-const DEFAULT_TITLE = 'Projects'
+const DEFAULT_TITLE = 'Projetos'
 
 export const ProjectPageStructure = (S: StructureBuilder) =>
   S.listItem()

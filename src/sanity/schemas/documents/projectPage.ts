@@ -7,6 +7,7 @@ import { PageType } from '@/sanity/types/enums'
 import type { ISanityImage } from '@/sanity/types/image'
 import type { ISanityMetadata } from '@/sanity/schemas/objects/metadata'
 import type { ISanitySEO } from '@/sanity/schemas/objects/seo'
+import type { ISanityRichText } from '@/sanity/schemas/objects/richText'
 
 import { PROJECT_SUB_DIRECTORY_NAME } from '@/constants'
 
@@ -85,7 +86,12 @@ export default defineType({
       group: 'main',
       validation: (Rule: ImageRule) => Rule.required(),
     }),
-
+    defineField({
+      name: 'richText',
+      title: 'Conteúdo',
+      type: 'richText',
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       name: 'metadata',
       title: 'Metadados',
@@ -121,6 +127,7 @@ export interface ISanityProjectPage {
   _type: string
   title: string
   slug: string
+  richText: ISanityRichText
 
   metadata?: ISanityMetadata
   seo?: ISanitySEO

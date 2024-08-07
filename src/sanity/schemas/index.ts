@@ -20,7 +20,6 @@ import seo from '@/sanity/schemas/objects/seo'
 import menu from '@/sanity/schemas/objects/menu'
 import portfolio from '@/sanity/schemas/objects/portfolio'
 import about from '@/sanity/schemas/objects/about'
-import highlight from '@/sanity/schemas/objects/highlight'
 
 const schemas = [
   // Singletons
@@ -45,7 +44,6 @@ const schemas = [
   menu,
   portfolio,
   about,
-  // highlight,
 ]
 
 export default schemas

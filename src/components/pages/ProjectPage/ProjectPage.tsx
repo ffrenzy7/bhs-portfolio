@@ -9,7 +9,7 @@ const ProjectPage = ({ data }: IProjectPage) => {
   return (
     <>
       <ProjectHero title={data.title} />
-      <ProjectMain />
+      <ProjectMain data={data.richText} />
     </>
   )
 }

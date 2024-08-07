@@ -19,11 +19,11 @@ const poppins = Poppins({
 })
 
 export default function App({ Component, pageProps }: AppProps) {
-  const isStudio = useRouter().pathname.includes('[...studio]')
+  const isAdmin = useRouter().pathname.includes('[...admin]')
 
   const { data, siteSettings } = pageProps || {}
 
-  return isStudio ? (
+  return isAdmin ? (
     <Component {...pageProps} />
   ) : (
     <>

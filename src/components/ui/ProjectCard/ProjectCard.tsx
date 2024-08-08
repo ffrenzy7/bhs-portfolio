@@ -71,15 +71,17 @@ const ProjectCard = ({ title, tags, thumbnail, slug, buttonText }: IProjectCard)
         <div className={clsx(s.content)}>
           <h3 className={clsx(s.title)}>{title}</h3>
 
-          <div className={clsx(s.tags)}>
+          <p className={clsx(s.tags)}>
             <span className={clsx(s.dash)}>- </span>
             {tags?.map((tag, index) => (
               <Fragment key={index}>
                 <span className={clsx(s.tag)}>{tag}</span>
-                {index < tags.length - 1 ? ', ' : ''}
+                <span className={clsx(s.comma)}>
+                  {index < tags.length - 1 ? ', ' : ''}
+                </span>
               </Fragment>
             ))}
-          </div>
+          </p>
         </div>
 
         <div className={clsx(s.buttonWrapper)}>

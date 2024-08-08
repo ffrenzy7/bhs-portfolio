@@ -2,18 +2,30 @@
 
 .RichText {
   .paragraph {
-    margin-top: rem(20);
+    &:not(:first-child) {
+      margin-top: rem(20);
+    }
 
     @include above('desktop') {
-      margin-top: vw(40);
+      &:not(:first-child) {
+        margin-top: vw(40);
+      }
     }
   }
 
   .title {
+    &:not(:first-child) {
+      margin-top: rem(40);
+    }
+
     font-size: rem(25);
     font-weight: 700;
 
     @include above('desktop') {
+      &:not(:first-child) {
+        margin-top: vw(80);
+      }
+
       font-size: vw(35);
     }
   }
@@ -23,14 +35,21 @@
   }
 
   .imageWrapper {
-    margin: rem(20) auto 0;
+    margin: 0 auto;
     overflow: hidden;
     max-height: 77dvh;
     box-shadow: rem(-5) rem(5) var(--color-radical-red);
 
+    &:not(:first-child) {
+      margin-top: rem(20);
+    }
+
     @include above('desktop') {
-      margin: vw(40) auto 0;
       box-shadow: vw(-10) vw(10) var(--color-radical-red);
+
+      &:not(:first-child) {
+        margin-top: vw(40);
+      }
     }
   }
 

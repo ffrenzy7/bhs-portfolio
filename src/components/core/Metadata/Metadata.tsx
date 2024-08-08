@@ -20,10 +20,15 @@ const Metadata = ({ pageData, siteData, titlePrefix = '', slug }: IMetadata) => 
   const description =
     pageData?.description || siteData?.description || fallback.description
 
-  const thumbnail =
-    pageData?.image || siteData?.image
-      ? urlFor(pageData?.image || siteData?.image).url()
-      : fallback.thumbnail
+  const keywords = pageData?.keywords || siteData?.keywords
+
+  // const thumbnail =
+  //   pageData?.image || siteData?.image
+  //     ? urlFor(pageData?.image || siteData?.image).url()
+  //     : fallback.thumbnail
+
+  const image = pageData?.image ?? siteData?.image
+  const thumbnail = image ? urlFor(image).url() : fallback.thumbnail
 
   const url = (slug && `${fallback.url}${slug}`) || fallback.url
 
@@ -34,6 +39,7 @@ const Metadata = ({ pageData, siteData, titlePrefix = '', slug }: IMetadata) => 
 
       <meta name="title" property="og:title" content={pageTitle} />
       <meta name="description" property="og:description" content={description} />
+      <meta name="keywords" property="og:keywords" content={keywords} />
       <meta name="image" property="og:image" content={thumbnail} />
       <meta name="type" property="og:type" content="website" />
       <meta name="url" property="og:url" content={url} />

@@ -85,7 +85,8 @@
   width: calc(100%);
   background-image: linear-gradient(transparent 0, var(--color-radical-red) 0);
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 100% 10%;
+  background-position: bottom left;
 
   &:not(:first-child) {
     margin-top: rem(15);
@@ -99,7 +100,6 @@
     margin-top: initial;
     transition-property: color, background-size;
     background-size: 0% 10%;
-    background-position: bottom left;
 
     &:hover {
       color: var(--color-radical-red);

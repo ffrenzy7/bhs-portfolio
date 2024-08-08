@@ -6,10 +6,10 @@
   height: rem(270);
   background-image: url(../../../assets/images/project-header-bg.jpg);
   background-size: cover;
-  padding: 0 rem($globalPaddingMobile);
+  padding: rem($menuHeightMobile) rem($globalPaddingMobile) rem(20);
   color: var(--color-white-lilac);
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 
   &::before {
     @include position-fit();
@@ -21,17 +21,20 @@
 
   @include above('desktop') {
     height: vw(434);
-    padding: 0 vw($globalPaddingDesktop);
+    padding: vw($menuHeightDesktop) vw($globalPaddingDesktop) vw(40);
   }
 }
 
 .content {
   position: relative;
+  line-height: 1;
 }
 
 .title {
   font-size: rem(35);
   font-weight: 700;
+
+  word-break: break-word;
 
   @include above('desktop') {
     font-size: vw(100);
@@ -40,14 +43,15 @@
 
 .list {
   display: flex;
+  align-items: center;
   gap: rem(15);
   font-size: rem(14);
-  margin-top: rem(10);
+  margin-top: rem(15);
 
   @include above('desktop') {
     gap: vw(20);
     font-size: initial;
-    margin-top: 0;
+    margin-top: vw(30);
   }
 }
 
@@ -56,6 +60,10 @@
 }
 
 .item {
+  &:not(:first-child) {
+    word-break: break-word;
+  }
+
   &:not(:last-child) {
     color: var(--color-radical-red);
   }

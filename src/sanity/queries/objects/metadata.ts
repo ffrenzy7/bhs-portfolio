@@ -4,6 +4,7 @@ const metadataQuery = groq`
   metadata {
     description,
     title,
+    keywords,
     image,
   }
 `

@@ -34,8 +34,10 @@ export default defineType({
     defineField({
       name: 'title',
       title: 'Título do Projeto',
+      description: 'Máximo: 20 caracteres.',
       type: 'string',
       group: 'main',
+      validation: (Rule) => Rule.required().max(20).warning('Deve ter até 20 caracteres'),
     }),
     defineField({
       name: 'slug',

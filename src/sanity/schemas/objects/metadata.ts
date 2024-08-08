@@ -24,6 +24,12 @@ export default defineType({
       validation: (Rule) => Rule.max(155).warning('Deve ter até 155 caracteres'),
     }),
     defineField({
+      name: 'keywords',
+      title: 'Palavras-chave',
+      type: 'string',
+      description: 'Separar por vírgula.',
+    }),
+    defineField({
       name: 'image',
       title: 'Imagem',
       type: 'image',
@@ -38,5 +44,6 @@ export default defineType({
 export interface ISanityMetadata {
   title?: string
   description?: string
+  keywords?: string
   image?: ISanityImage
 }

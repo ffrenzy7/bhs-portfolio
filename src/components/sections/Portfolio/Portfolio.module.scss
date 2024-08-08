@@ -53,3 +53,28 @@
     justify-content: space-between;
   }
 }
+
+.loadMore {
+  display: block;
+  margin: rem(40) auto 0;
+  background: var(--color-radical-red);
+  color: var(--color-white-lilac);
+  padding: rem(10);
+  font-size: rem(20);
+  font-weight: 600;
+  border: 1px solid var(--color-radical-red);
+
+  @include isHoverable {
+    @include transition;
+
+    transition-property: background, color;
+    margin: vw(100) auto 0;
+    padding: vw(20);
+    font-size: vw(30);
+
+    &:hover {
+      background: transparent;
+      color: var(--color-radical-red);
+    }
+  }
+}

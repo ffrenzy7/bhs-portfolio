@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import clsx from 'clsx'
 
 import ProjectCard from '@/components/ui/ProjectCard'
@@ -7,46 +9,13 @@ import type { IPortfolio } from '@/components/sections/Portfolio/PortfolioTypes'
 
 import s from '@/components/sections/Portfolio/Portfolio.module.scss'
 
-const mockData = [
-  {
-    title: 'Projeto 1',
-    tags: ['tag1', 'tag2'],
-    image: 'https://dlfilix.droitlab.com/wp-content/uploads/2019/04/portfolio_img_1.jpg',
-    url: '/',
-  },
-  {
-    title: 'Projeto 2',
-    tags: ['tag1', 'tag2'],
-    image: 'https://dlfilix.droitlab.com/wp-content/uploads/2019/04/portfolio_img_2.jpg',
-    url: '/',
-  },
-  {
-    title: 'Projeto 3',
-    tags: ['tag1', 'tag2'],
-    image: 'https://dlfilix.droitlab.com/wp-content/uploads/2019/04/portfolio_img_4.jpg',
-    url: '/',
-  },
-  {
-    title: 'Projeto 4',
-    tags: ['tag1', 'tag2'],
-    image: 'https://dlfilix.droitlab.com/wp-content/uploads/2019/04/portfolio_img_3.jpg',
-    url: '/',
-  },
-  {
-    title: 'Projeto 5',
-    tags: ['tag1', 'tag2'],
-    image: 'https://dlfilix.droitlab.com/wp-content/uploads/2019/04/portfolio_img_5.jpg',
-    url: '/',
-  },
-  {
-    title: 'Projeto 6',
-    tags: ['tag1', 'tag2'],
-    image: 'https://dlfilix.droitlab.com/wp-content/uploads/2019/04/portfolio_img_6.jpg',
-    url: '/',
-  },
-]
-
 const Portfolio = ({ data }: IPortfolio) => {
+  const [numberOfCards, setNumberOfCards] = useState<number>(4)
+
+  const loadMore = () => {
+    setNumberOfCards((prev) => prev + 4)
+  }
+
   return (
     <section className={clsx(s.portfolio)} id="portfolio">
       <ScrollingText className={clsx(s.titleWrapper)}>
@@ -54,10 +23,18 @@ const Portfolio = ({ data }: IPortfolio) => {
       </ScrollingText>
 
       <div className={clsx(s.projects)}>
-        {data?.projects?.map((project, index) => (
-          <ProjectCard buttonText={data?.buttonText} key={index} {...project} />
-        ))}
+        {data?.projects
+          ?.slice(0, numberOfCards)
+          ?.map((project, index) => (
+            <ProjectCard buttonText={data?.buttonText} key={index} {...project} />
+          ))}
       </div>
+
+      {numberOfCards < data?.projects?.length && (
+        <button className={clsx(s.loadMore)} onClick={loadMore}>
+          Ver mais
+        </button>
+      )}
     </section>
   )
 }

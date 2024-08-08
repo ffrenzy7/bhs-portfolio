@@ -4,9 +4,11 @@
   margin-top: rem(270 - $menuHeightMobile);
   padding: rem(50) rem($globalPaddingMobile);
   color: var(--color-mine-shaft);
+  min-height: calc(100dvh - rem(270 + $menuHeightMobile));
 
   @include above('desktop') {
     margin-top: vw(434 - $menuHeightDesktop);
     padding: vw(120) vw($globalPaddingDesktop);
+    min-height: calc(100dvh - vw(434 + $menuHeightDesktop));
   }
 }

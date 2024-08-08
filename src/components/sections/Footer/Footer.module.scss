@@ -7,12 +7,14 @@
   align-items: center;
   background: var(--color-shark);
   color: var(--color-white-lilac);
-  padding: rem(20) rem($globalPaddingMobile);
+  padding: 0 rem($globalPaddingMobile);
+  height: rem($footerHeightMobile);
   position: relative;
 
   @include above('desktop') {
     gap: initial;
-    padding: vw(30) vw($globalPaddingDesktop);
+    padding: 0 vw($globalPaddingDesktop);
+    height: vw($footerHeightDesktop);
   }
 }
 

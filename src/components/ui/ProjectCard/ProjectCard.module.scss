@@ -80,12 +80,11 @@
 
 .tag {
   display: block;
-  color: var(--color-radical-red);
-
+  color: var(--color-white-lilac);
   width: calc(100%);
   background-image: linear-gradient(transparent 0, var(--color-radical-red) 0);
   background-repeat: no-repeat;
-  background-size: 100% 10%;
+  background-size: 0% 10%;
   background-position: bottom left;
 
   &:not(:first-child) {
@@ -96,15 +95,22 @@
     @include transition;
 
     display: initial;
-    color: var(--color-white-lilac);
     margin-top: initial;
     transition-property: color, background-size;
-    background-size: 0% 10%;
+    // background-size: 0% 10%;
 
     &:hover {
       color: var(--color-radical-red);
       background-size: 100% 10%;
     }
+  }
+}
+
+.comma {
+  display: none;
+
+  @include above('desktop') {
+    display: initial;
   }
 }
 

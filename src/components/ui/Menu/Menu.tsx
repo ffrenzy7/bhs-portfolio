@@ -1,4 +1,7 @@
 import { useState, MouseEvent } from 'react'
+
+import { useRouter } from 'next/router'
+
 import Link from 'next/link'
 import clsx from 'clsx'
 
@@ -7,6 +10,8 @@ import type { IMenu } from '@/components/ui/Menu/MenuTypes'
 import s from '@/components/ui/Menu/Menu.module.scss'
 
 const Menu = ({ menu }: IMenu) => {
+  const router = useRouter()
+
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const scrollToSection = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -15,12 +20,31 @@ const Menu = ({ menu }: IMenu) => {
     event.preventDefault()
 
     const linkElement = event.target as HTMLAnchorElement
-    const id = linkElement.getAttribute('href')?.replace('/', '')
-    const section = document.querySelector(id || '')
+    // const id = linkElement.getAttribute('href')?.replace('/', '')
 
-    if (!section) return
+    // const id = linkElement.getAttribute('href')
 
-    section.scrollIntoView({ behavior: 'smooth' })
+    const href = linkElement.getAttribute('href')
+
+    // const section = document.querySelector(id || '')
+
+    // if (!section) return
+
+    if (!href) return
+
+    // section.scrollIntoView({ behavior: 'smooth' })
+
+    const sectionId = href.replace('/', '')
+
+    if (router.pathname === '/') {
+      const section = document.querySelector(sectionId) as HTMLElement | null
+
+      if (!section) return
+
+      section.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      router.push(href)
+    }
   }
 
   return (
@@ -51,7 +75,9 @@ const Menu = ({ menu }: IMenu) => {
       <nav className={clsx(s.nav, { [s.isOpen]: isOpen })}>
         <ul className={clsx(s.list)}>
           <li className={clsx(s.item)}>
-            <Link href="/">{menu?.home || 'Home'}</Link>
+            <Link href="/" onClick={scrollToSection}>
+              {menu?.home || 'Home'}
+            </Link>
           </li>
 
           <li className={clsx(s.item)}>

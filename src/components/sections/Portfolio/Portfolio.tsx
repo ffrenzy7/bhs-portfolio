@@ -13,7 +13,7 @@ const Portfolio = ({ data }: IPortfolio) => {
   const [numberOfCards, setNumberOfCards] = useState<number>(4)
 
   const loadMore = () => {
-    setNumberOfCards((prev) => prev + 4)
+    setNumberOfCards((prev) => prev + 6)
   }
 
   return (

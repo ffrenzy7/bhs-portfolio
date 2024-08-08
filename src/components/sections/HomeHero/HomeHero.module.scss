@@ -34,7 +34,9 @@
 }
 
 .name {
-  font-size: rem(70);
+  // font-size: rem(70);
+  font-size: vw(320);
+
   font-weight: 700;
   line-height: 0.9;
   word-break: break-word;

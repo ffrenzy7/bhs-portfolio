@@ -22,6 +22,7 @@ export const getStaticProps: GetStaticProps = async (context: GetStaticPropsCont
       social: siteSettings?.social,
       siteSettings,
     },
+    revalidate: 10,
   }
 }
 

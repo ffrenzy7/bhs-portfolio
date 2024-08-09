@@ -31,6 +31,7 @@ export const getStaticProps: GetStaticProps = async ({ params, draftMode }) => {
       data,
       siteSettings,
     },
+    revalidate: 10,
   }
 }
 

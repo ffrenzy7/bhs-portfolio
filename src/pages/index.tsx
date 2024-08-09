@@ -1,4 +1,6 @@
-import { GetStaticProps, GetStaticPropsContext } from 'next/types'
+// import { GetStaticProps, GetStaticPropsContext } from 'next/types'
+
+import { GetServerSideProps, GetServerSidePropsContext } from 'next/types'
 
 import client from '@/sanity/lib/client'
 import siteSettingsQuery from '@/sanity/queries/singletons/siteSettings'
@@ -12,7 +14,22 @@ const Home = ({ data, social }: IHomePage) => {
   return <HomePage data={data} social={social} />
 }
 
-export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
+// export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
+//   const data = await client.fetch(homePageQuery)
+//   const siteSettings = await client.fetch(siteSettingsQuery)
+
+//   return {
+//     props: {
+//       data,
+//       social: siteSettings?.social,
+//       siteSettings,
+//     },
+//   }
+// }
+
+export const getServerSideProps: GetServerSideProps = async (
+  context: GetServerSidePropsContext,
+) => {
   const data = await client.fetch(homePageQuery)
   const siteSettings = await client.fetch(siteSettingsQuery)
 
@@ -22,7 +39,6 @@ export const getStaticProps: GetStaticProps = async (context: GetStaticPropsCont
       social: siteSettings?.social,
       siteSettings,
     },
-    revalidate: 10,
   }
 }
 

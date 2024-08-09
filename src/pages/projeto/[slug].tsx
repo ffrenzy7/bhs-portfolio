@@ -1,5 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 
+// import { GetStaticPaths, GetServerSideProps } from 'next/types'
+
 import client from '@/sanity/lib/client'
 import projectPageQuery, {
   projectPathsQuery,
@@ -31,9 +33,26 @@ export const getStaticProps: GetStaticProps = async ({ params, draftMode }) => {
       data,
       siteSettings,
     },
-    revalidate: 10,
   }
 }
+
+// export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+//   const queryParams = {
+//     slug: params?.slug ? `${PROJECT_SUB_DIRECTORY_NAME}/${params?.slug}` : '',
+//   }
+
+//   const data = await client.fetch(projectPageQuery, queryParams)
+//   const siteSettings = await client.fetch(siteSettingsQuery)
+
+//   if (!data) return { notFound: true }
+
+//   return {
+//     props: {
+//       data,
+//       siteSettings,
+//     },
+//   }
+// }
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await client.fetch(projectPathsQuery)

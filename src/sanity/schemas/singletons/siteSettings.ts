@@ -64,7 +64,7 @@ export default defineType({
           name: 'whatsapp',
           title: 'WhatsApp',
           description:
-            'Insira no formato <CodigoDoPais><DDD><Numero> sem parênteses, traços ou o sinal de +. Somente número. Exemplo: 5511912345678',
+            'Insira no formato <CodigoDoPais><DDD><Numero> sem parênteses, traços ou o sinal de +. Somente números. Exemplo: 5511912345678',
           type: 'string',
           validation: (Rule) => Rule.regex(/^\d{1,4}\d{1,12}$/),
         }),

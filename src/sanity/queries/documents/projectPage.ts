@@ -16,10 +16,4 @@ const projectPageQuery = groq`
   }
 `
 
-export const projectPathsQuery = groq`
-  *[_type == "${PageType.Project}" && defined(slug.current)] {
-    "params": { "slug": slug.current },
-  }
-`
-
 export default projectPageQuery

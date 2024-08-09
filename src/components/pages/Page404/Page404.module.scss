@@ -1,0 +1,67 @@
+@import '@/styles/shared-imports.scss';
+
+.container {
+  @include flex-center(column);
+
+  background: var(--color-woodsmoke);
+  margin-top: rem(-$menuHeightMobile);
+  height: calc(100dvh - rem($menuHeightMobile));
+  text-align: center;
+  padding: rem($menuHeightMobile + 10) rem($globalPaddingMobile)
+    rem($footerHeightMobile + 10);
+  line-height: 1;
+  word-break: break-word;
+
+  @include above('desktop') {
+    margin-top: vw(-$menuHeightDesktop);
+    height: calc(100dvh - vw($menuHeightDesktop));
+    padding: vw($menuHeightDesktop + 20) vw($globalPaddingDesktop)
+      vw($footerHeightDesktop + 20);
+  }
+}
+
+.title {
+  font-size: rem(50);
+  color: var(--color-radical-red);
+  font-weight: 700;
+
+  @include above('desktop') {
+    font-size: vw(80);
+  }
+}
+
+.subtitle {
+  font-size: rem(20);
+  color: var(--color-white-lilac);
+  margin-top: rem(15);
+
+  @include above('desktop') {
+    font-size: vw(30);
+    margin-top: vw(30);
+  }
+}
+
+.link {
+  display: block;
+  margin: rem(25) auto 0;
+  background: var(--color-radical-red);
+  color: var(--color-white-lilac);
+  padding: rem(10);
+  font-size: rem(20);
+  font-weight: 600;
+  border: 1px solid var(--color-radical-red);
+
+  @include isHoverable {
+    @include transition;
+
+    transition-property: background, color;
+    margin: vw(50) auto 0;
+    padding: vw(20);
+    font-size: vw(30);
+
+    &:hover {
+      background: transparent;
+      color: var(--color-radical-red);
+    }
+  }
+}

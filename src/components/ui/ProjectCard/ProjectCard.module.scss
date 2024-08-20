@@ -28,6 +28,13 @@
     width: vw(440);
     height: vw(564);
   }
+
+  &::before {
+    @include position-fit;
+
+    content: '';
+    background: rgba(0, 0, 0, 0.7);
+  }
 }
 
 .image {

@@ -15,13 +15,18 @@
     padding: 0 vw($globalPaddingDesktop);
   }
 
-  // &::before {
-  //   @include position-fit();
+  &::before {
+    @include position-fit;
 
-  //   content: '';
-  //   background: url('../../../assets/images/bruno-henrique.png') no-repeat 130% 120% / 60%;
-  //   opacity: 0.3;
-  // }
+    content: '';
+    background: url('../../../assets/images/foto-bhs.png') no-repeat 55% / 400%;
+    opacity: 0.3;
+    z-index: -1;
+
+    @include above('desktop') {
+      background: url('../../../assets/images/foto-bhs.png') no-repeat 28% 28% / 128%;
+    }
+  }
 }
 
 .overlay {
